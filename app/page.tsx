@@ -1,3 +1,5 @@
+import { EnrollmentForm } from "./EnrollmentForm";
+
 const programCards = [
   {
     tag: "Infant care",
@@ -61,101 +63,8 @@ function DemoNotice() {
   return (
     <div className="prototype-notice" role="note">
       <strong>Owner review</strong>
-      <span>Verified details are being added. Forms and remaining unconfirmed information are not yet active.</span>
+      <span>Email-preparation forms are ready for testing. A request is not sent until the parent presses Send in their email app.</span>
     </div>
-  );
-}
-
-function EnrollmentForm({ kind }: { kind: "tour" | "waitlist" | "question" }) {
-  const isTour = kind === "tour";
-  const isWaitlist = kind === "waitlist";
-  const title = isTour ? "Request a tour" : isWaitlist ? "Join the waitlist" : "Ask a question";
-  const button = isTour ? "Tour form setup pending" : isWaitlist ? "Waitlist form setup pending" : "Inquiry form setup pending";
-
-  return (
-    <form className="enrollment-form" aria-labelledby={`${kind}-form-title`}>
-      <div className="form-heading">
-        <span className="eyebrow">{isTour ? "Care needed soon" : isWaitlist ? "Planning ahead" : "Need clarity first"}</span>
-        <h3 id={`${kind}-form-title`}>{title}</h3>
-        <p>
-          {isTour
-            ? "Tell us what care you need and when you would like to visit. Requests are reviewed before a time is confirmed."
-            : isWaitlist
-              ? "Share your timing and flexibility. Joining will not guarantee placement or a specific position."
-              : "Send a short enrollment question. Urgent or existing-family communication should use the program’s verified direct channel."}
-        </p>
-      </div>
-
-      <div className="form-grid">
-        <label>
-          Parent or guardian name <span aria-hidden="true">*</span>
-          <input name={`${kind}-parent-name`} autoComplete="name" required />
-        </label>
-        <label>
-          Email address <span aria-hidden="true">*</span>
-          <input type="email" name={`${kind}-email`} autoComplete="email" inputMode="email" required />
-        </label>
-        {kind !== "question" && (
-          <>
-            <label>
-              Phone number <span aria-hidden="true">*</span>
-              <input type="tel" name={`${kind}-phone`} autoComplete="tel" inputMode="tel" required />
-            </label>
-            <label>
-              Child’s age or birth month/year <span aria-hidden="true">*</span>
-              <input name={`${kind}-age`} placeholder="Example: 2 years, or March 2024" required />
-            </label>
-            <label>
-              Desired start date <span aria-hidden="true">*</span>
-              <input type="month" name={`${kind}-start`} required />
-            </label>
-            <label>
-              Schedule needed <span aria-hidden="true">*</span>
-              <select name={`${kind}-schedule`} defaultValue="" required>
-                <option value="" disabled>Select a schedule</option>
-                <option>Full-time</option>
-                <option>Part-time</option>
-                <option>Not sure yet</option>
-              </select>
-            </label>
-          </>
-        )}
-        {isTour && (
-          <label className="full-field">
-            Preferred tour day or time
-            <input name="tour-preference" placeholder="Example: Tuesday after 4:00 PM" />
-          </label>
-        )}
-        {isWaitlist && (
-          <label className="full-field">
-            What flexibility do you have?
-            <textarea name="waitlist-flexibility" rows={3} placeholder="Start date, days, or hours that could flex" />
-          </label>
-        )}
-        {kind === "question" && (
-          <label className="full-field">
-            Your question <span aria-hidden="true">*</span>
-            <textarea name="question" rows={4} required />
-          </label>
-        )}
-      </div>
-
-      <label className="check-row">
-        <input type="checkbox" name={`${kind}-contact-consent`} />
-        <span>I understand Gifted Garden may contact me only about this request. This is not marketing consent.</span>
-      </label>
-      <label className="check-row">
-        <input type="checkbox" name={`${kind}-marketing-consent`} />
-        <span>Optional: I would like occasional program or availability updates. I can unsubscribe at any time.</span>
-      </label>
-      <p className="privacy-hint">
-        Do not include medical, custody, financial, identification, benefit, or emergency information. Read the <a href="#privacy">privacy notice</a>.
-      </p>
-      <button className="button button-primary full-button" type="submit" disabled aria-disabled="true">
-        {button}
-      </button>
-      <p className="form-status">This form is not active yet. For enrollment questions, call <a href="tel:+16196461029">(619) 646-1029</a> or email <a href="mailto:giftedgarden1@gmail.com">giftedgarden1@gmail.com</a>.</p>
-    </form>
   );
 }
 
@@ -357,7 +266,7 @@ export default function Home() {
           <div className="form-section-copy">
             <span className="eyebrow">Primary next step</span>
             <h2 id="tour-section-title">Come see whether Gifted Garden feels right.</h2>
-            <p>Tour length, child attendance guidance, identification requirements, response time, cancellation process, and exact-location workflow must be confirmed before this form goes live.</p>
+            <p>Complete the form to prepare a structured email to Gifted Garden. Tour length, child attendance guidance, identification requirements, response time, and cancellation process still need confirmation.</p>
             <ul>
               <li>Requests are reviewed before confirmation.</li>
               <li>A requested time is not booked until confirmed.</li>
@@ -435,9 +344,9 @@ export default function Home() {
           <div className="privacy-columns">
             <div><h3>What the forms will collect</h3><p>Only the limited parent contact, child age or birth month/year, timing, schedule, and request information shown above—solely to respond and evaluate program fit.</p></div>
             <div><h3>What not to send</h3><p>Never submit medical, immunization, custody, identification, Social Security, financial, benefit, or emergency information through this website.</p></div>
-            <div><h3>What must be approved</h3><p>The form provider, recipients, retention and deletion process, privacy contact, analytics choice, and exact consent language must be documented before activation.</p></div>
+            <div><h3>How email preparation works</h3><p>The form prepares a draft in the parent’s own email application. Gifted Garden receives nothing until the parent reviews the message and presses Send.</p></div>
           </div>
-          <p className="privacy-bottom">No analytics are enabled in this prototype. Operational contact consent will remain separate from optional, unselected marketing consent. Effective and last-updated dates will be added when the policy is approved.</p>
+          <p className="privacy-bottom">No external form processor or analytics provider receives these form details. The parent’s email provider processes the message after they choose Send. Operational contact consent remains separate from optional, unselected marketing consent.</p>
         </section>
       </main>
 
@@ -446,7 +355,7 @@ export default function Home() {
         <div className="footer-links">
           <a href="#program">Program</a><a href="#safety">Safety</a><a href="#tuition">Tuition</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a>
         </div>
-        <p>Local prototype for owner review. Not ready for public enrollment.</p>
+        <p>Owner review version. Email-preparation forms are ready for testing.</p>
       </footer>
 
       <nav className="mobile-actions" aria-label="Mobile enrollment actions">

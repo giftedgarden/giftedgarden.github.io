@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function render() {
@@ -36,12 +37,23 @@ test("renders the Gifted Garden enrollment prototype", async () => {
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/);
 });
 
-test("keeps prototype forms inactive until the privacy workflow is approved", async () => {
+test("renders active email-preparation forms without an external form processor", async () => {
   const response = await render();
   const html = await response.text();
-  assert.match(html, /Tour form setup pending/);
-  assert.match(html, /Waitlist form setup pending/);
-  assert.match(html, /Inquiry form setup pending/);
-  assert.match(html, /disabled=""/);
-  assert.match(html, /No analytics are enabled in this prototype/);
+  assert.match(html, /Prepare Tour Request Email/);
+  assert.match(html, /Prepare Waitlist Email/);
+  assert.match(html, /Prepare Question Email/);
+  assert.doesNotMatch(html, /form setup pending/);
+  assert.match(html, /Nothing is sent automatically/);
+  assert.match(html, /No external form processor or analytics provider/);
+});
+
+test("prepares structured messages for the verified business email", async () => {
+  const source = await readFile(new URL("../app/EnrollmentForm.tsx", import.meta.url), "utf8");
+  assert.match(source, /mailto:\$\{destination\}/);
+  assert.match(source, /giftedgarden1@gmail\.com/);
+  assert.match(source, /Gifted Garden Tour Request/);
+  assert.match(source, /Operational contact consent: Yes/);
+  assert.match(source, /encodeURIComponent/);
+  assert.match(source, /window\.location\.assign\(mailto\)/);
 });

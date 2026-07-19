@@ -18,6 +18,7 @@ Updated July 18, 2026.
 - Provider: Dionne Panton, child-care provider
 - Provider qualifications: M.S. in Early Childhood Education; seven years as a child-care professional
 - Address policy: withhold the complete address and arrival instructions until a tour appointment is reviewed and confirmed
+- Form delivery: prepare a templated email to giftedgarden1@gmail.com in the visitor’s own email app; the visitor must review and press Send
 - Tuition: not yet supplied; public site uses “request current tuition”
 
 ## Internal growth goal

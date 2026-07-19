@@ -312,7 +312,11 @@ textarea { resize: vertical; }
 input:focus, select:focus, textarea:focus { border-color: var(--forest); outline: 3px solid rgba(11,95,255,0.3); outline-offset: 1px; }
 .check-row { display: grid; grid-template-columns: 24px 1fr; gap: 10px; margin-top: 18px; color: var(--ink-soft); font-size: 0.84rem; }
 .check-row input { width: 22px; min-height: 22px; margin: 2px 0 0; }
-.privacy-hint, .form-status { color: var(--ink-soft); font-size: 0.8rem; }
+.privacy-hint, .form-status, .direct-fallback { color: var(--ink-soft); font-size: 0.8rem; }
+.form-status { margin: 14px 0 0; padding: 14px 16px; background: rgba(184, 205, 182, 0.3); border-radius: 10px; }
+.form-status.prepared { background: rgba(246, 207, 101, 0.35); color: var(--ink); font-weight: 700; }
+.direct-fallback { margin-bottom: 0; }
+.direct-fallback a { font-weight: 800; }
 .full-button { width: 100%; margin-top: 14px; }
 .full-button:disabled { background: #d8d7cf; color: #5c625e; box-shadow: none; cursor: not-allowed; }
 

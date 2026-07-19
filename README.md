@@ -1,6 +1,6 @@
 # Gifted Garden website
 
-A warm, mobile-first enrollment funnel for Gifted Garden in Lomita Village, San Diego. This first version is a local prototype for owner review; it is intentionally not public or ready to collect family information.
+A warm, mobile-first enrollment funnel for Gifted Garden in Lomita Village, San Diego. This owner-review version is privately published and ready to test, but is intentionally hidden from search engines.
 
 ## Current status
 
@@ -10,7 +10,8 @@ A warm, mobile-first enrollment funnel for Gifted Garden in Lomita Village, San 
 - Draft privacy notice and separate marketing consent
 - Search-friendly title and description
 - Search indexing disabled while facts and workflows remain unverified
-- Forms disabled until a secure processor and privacy workflow are approved
+- Tour, waitlist, and question forms prepare structured emails in the visitor’s own email app
+- No third-party form processor receives the form details; nothing is sent until the visitor presses Send
 - Verified operating facts are tracked in `PROJECT_BRIEF.md`
 
 ## Review before public launch
@@ -26,7 +27,7 @@ The Product Owner must verify and document:
 7. Tour expectations, waitlist rules, response times, and exact-location process
 8. Military fee-assistance and subsidy participation
 9. Authorized texting, calling hours, voicemail expectations, response time, and existing-family channel
-10. Form, scheduling, analytics, retention, deletion, and consent vendors/workflows
+10. Long-term form, scheduling, analytics, retention, deletion, and consent workflows if the email-based approach is replaced
 11. Authentic environment photographs and written permissions
 12. Official Yelp, Google, social, directions, custom domain, and canonical URLs
 
