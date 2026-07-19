@@ -13,6 +13,11 @@ Updated July 18, 2026.
 - Languages supported: English
 - Extended-care offering: before- and after-school care
 - Military fee-assistance status: active; exact program name and supporting documentation still required
+- Business phone: (619) 646-1029
+- Business email: giftedgarden1@gmail.com
+- Provider: Dionne Panton, child-care provider
+- Provider qualifications: M.S. in Early Childhood Education; seven years as a child-care professional
+- Address policy: withhold the complete address and arrival instructions until a tour appointment is reviewed and confirmed
 - Tuition: not yet supplied; public site uses “request current tuition”
 
 ## Internal growth goal
@@ -28,8 +33,9 @@ Updated July 18, 2026.
 - Tuition and routine fees
 - Program differentiators and educational practices
 - Meal details, transportation details, and family-supplied items
-- Provider name, biography, photograph, credentials, and training
+- Provider professional photograph, CPR/first-aid status, background-check details, and additional training
 - License number and exact licensed business name/DBA
-- Phone, authorized text number, email, response time, and existing-family contact path
+- Authorized text number, calling hours, voicemail expectations, response time, and existing-family contact path
+- Full-time and part-time schedule options
 - Exact military fee-assistance program name and approved public wording
 - Current website, Google Business Profile, Yelp, and social-profile URLs

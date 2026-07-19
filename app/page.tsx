@@ -154,7 +154,7 @@ function EnrollmentForm({ kind }: { kind: "tour" | "waitlist" | "question" }) {
       <button className="button button-primary full-button" type="submit" disabled aria-disabled="true">
         {button}
       </button>
-      <p className="form-status">A secure form provider, response workflow, retention policy, and verified contact fallback must be approved before this form is activated.</p>
+      <p className="form-status">This form is not active yet. For enrollment questions, call <a href="tel:+16196461029">(619) 646-1029</a> or email <a href="mailto:giftedgarden1@gmail.com">giftedgarden1@gmail.com</a>.</p>
     </form>
   );
 }
@@ -291,8 +291,8 @@ export default function Home() {
           <div className="provider-copy">
             <span className="eyebrow">Meet the provider</span>
             <h2 id="provider-title">Care begins with the person families trust.</h2>
-            <p>The owner or lead provider’s professional name, role, experience, education, CPR/first-aid status, background-check information, and approved photograph must be supplied before publication.</p>
-            <blockquote>“We will replace this space with a factual provider introduction—not a fabricated testimonial or unsupported credential.”</blockquote>
+            <p>Dionne Panton is the child-care provider at Gifted Garden. She holds a Master of Science in Early Childhood Education and has worked as a child-care professional for seven years.</p>
+            <blockquote>CPR/first-aid status, background-check details, additional training, and an approved professional photograph still need confirmation before public launch.</blockquote>
           </div>
         </section>
 
@@ -409,7 +409,7 @@ export default function Home() {
           <div>
             <span className="eyebrow">Location</span>
             <h2 id="location-title">Child care in Lomita Village, San Diego.</h2>
-            <p>Gifted Garden serves families in Lomita Village and the surrounding San Diego area. If the program is home-based, the complete address and arrival instructions will be shared only after a tour request is reviewed and confirmed.</p>
+            <p>Gifted Garden serves families in Lomita Village and the surrounding San Diego area. To protect the privacy and safety of this family home child-care program, the complete address and arrival instructions are shared only after a tour request is reviewed and the appointment is confirmed.</p>
             <p className="inline-note"><strong>Directions link:</strong> A privacy-safe, verified destination must be approved before publication.</p>
           </div>
         </section>
@@ -418,10 +418,10 @@ export default function Home() {
           <div className="contact-copy">
             <span className="eyebrow">Contact</span>
             <h2 id="contact-title">A short question is a good place to start.</h2>
-            <p>The business phone, authorized text number, email, calling hours, voicemail expectations, and existing-family contact path must be verified before launch.</p>
+            <p>Call or email Gifted Garden with a brief enrollment question. Calling hours, texting authorization, voicemail expectations, response time, and the existing-family contact path still need confirmation.</p>
             <div className="contact-placeholder">
-              <span>Phone & text</span><strong>To be confirmed</strong>
-              <span>Email</span><strong>To be confirmed</strong>
+              <span>Business phone</span><strong><a href="tel:+16196461029">(619) 646-1029</a></strong>
+              <span>Email</span><strong><a href="mailto:giftedgarden1@gmail.com">giftedgarden1@gmail.com</a></strong>
               <span>Response time</span><strong>To be confirmed</strong>
             </div>
             <p>Do not use a website form, email, or text for emergencies or sensitive child information.</p>
@@ -451,7 +451,7 @@ export default function Home() {
 
       <nav className="mobile-actions" aria-label="Mobile enrollment actions">
         <a href="#tour">Tour</a>
-        <a href="#contact">Call</a>
+        <a href="tel:+16196461029">Call</a>
         <a href="#waitlist">Waitlist</a>
       </nav>
 

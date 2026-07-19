@@ -27,6 +27,11 @@ test("renders the Gifted Garden enrollment prototype", async () => {
   assert.match(html, /Birth through age 5/);
   assert.match(html, /3 spaces/);
   assert.match(html, /6:00 AM/);
+  assert.match(html, /Dionne Panton/);
+  assert.match(html, /Master of Science in Early Childhood Education/);
+  assert.match(html, /\(619\) 646-1029/);
+  assert.match(html, /giftedgarden1@gmail.com/);
+  assert.match(html, /appointment is confirmed/);
   assert.match(html, /name="robots" content="noindex, nofollow"/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/);
 });

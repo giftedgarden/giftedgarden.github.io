@@ -19,13 +19,13 @@ The Product Owner must verify and document:
 
 1. Legal program type, business name/DBA, license status, and publishable license number
 2. Ages served, potty-learning policy, capacity, and any current openings
-3. Provider identity, biography, photograph, credentials, and training
+3. Provider photograph, CPR/first-aid status, background-check details, and additional training
 4. Days, hours, schedules, holidays, and closures
 5. Tuition approach, included services, and all routine fees
 6. Meals, allergies, rest, illness, and family-supplied items
 7. Tour expectations, waitlist rules, response times, and exact-location process
 8. Military fee-assistance and subsidy participation
-9. Business phone, authorized texting, email, calling hours, and existing-family channel
+9. Authorized texting, calling hours, voicemail expectations, response time, and existing-family channel
 10. Form, scheduling, analytics, retention, deletion, and consent vendors/workflows
 11. Authentic environment photographs and written permissions
 12. Official Yelp, Google, social, directions, custom domain, and canonical URLs
