@@ -23,7 +23,10 @@ test("renders the Gifted Garden enrollment prototype", async () => {
   assert.match(html, /Skip to main content/);
   assert.match(html, /Request a Tour/);
   assert.match(html, /Join the Waitlist/);
-  assert.match(html, /Local prototype/);
+  assert.match(html, /Family home child care/);
+  assert.match(html, /Birth through age 5/);
+  assert.match(html, /3 spaces/);
+  assert.match(html, /6:00 AM/);
   assert.match(html, /name="robots" content="noindex, nofollow"/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/);
 });

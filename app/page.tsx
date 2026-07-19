@@ -2,17 +2,17 @@ const programCards = [
   {
     tag: "Infant care",
     title: "A calm, responsive beginning",
-    copy: "Age range, feeding support, and care schedule must be confirmed before publication.",
+    copy: "Care is available from birth. Feeding support, daily supplies, and attendance schedules still need confirmation.",
   },
   {
     tag: "Toddler care",
     title: "Room to move, wonder, and connect",
-    copy: "Daily routines and potty-learning expectations must be confirmed before publication.",
+    copy: "Gifted Garden serves toddlers through age 3. Daily routines and potty-learning expectations still need confirmation.",
   },
   {
     tag: "Preschool",
     title: "Playful preparation for what comes next",
-    copy: "Enrollment ages, learning practices, and attendance options must be confirmed before publication.",
+    copy: "Preschool care is available through age 5. Learning practices and attendance options still need confirmation.",
   },
 ];
 
@@ -33,16 +33,16 @@ const safetyItems = [
 ];
 
 const faqs = [
-  ["What ages does Gifted Garden accept?", "Infant, toddler, and preschool care are represented in this prototype. Exact ages and eligibility must be confirmed before publication."],
-  ["What are the hours?", "Operating days, opening and closing times, holidays, and closure dates are awaiting owner confirmation."],
+  ["What ages does Gifted Garden accept?", "Gifted Garden serves children from birth through age 5, including infant, toddler, and preschool stages."],
+  ["What are the hours?", "Care hours are 6:00 AM–4:30 PM. Operating days, holidays, and planned closure dates still need owner confirmation."],
   ["Do you offer full-time or part-time care?", "Schedule options are being finalized. Families will be able to compare verified choices here before requesting a tour."],
-  ["How much is tuition?", "Gifted Garden will publish a current tuition approach and complete fee summary before launch. No price is being advertised until it is verified."],
-  ["Do you have openings?", "Availability changes by age and schedule. The live site will show an owner-reviewed status and update date. Placement is never guaranteed until admission is complete."],
+  ["How much is tuition?", "Please request current tuition and a complete fee summary. No price will be advertised until the amount, included services, and routine fees are verified."],
+  ["Do you have openings?", "Yes. Gifted Garden currently has 3 available spaces within a licensed capacity of 6. Availability was last updated July 18, 2026 and placement is not guaranteed until admission is complete."],
   ["Are meals and snacks provided?", "Meal, snack, allergy, and family-supplied item policies must be confirmed. Medical records should never be sent through this website."],
   ["Does my child need to be potty trained?", "The program’s potty-learning policy will be stated here in plain language once confirmed."],
   ["How do rest and sick-child policies work?", "The daily rest routine and illness/return-to-care rules will be summarized here. Complete policies are reviewed during enrollment."],
-  ["Is Gifted Garden licensed?", "The exact legal program type, business name, license status, and any publishable license number must be verified before launch."],
-  ["Do you accept subsidies or military fee assistance?", "Military families are warmly welcomed. Current subsidy and fee-assistance participation must be confirmed directly and will never be presented as military endorsement."],
+  ["Is Gifted Garden licensed?", "Gifted Garden operates as a family home child care with a capacity of 6. The license number and licensed business name must be confirmed before publication."],
+  ["Do you accept subsidies or military fee assistance?", "Yes. Gifted Garden’s military fee-assistance status is active. Families should contact the program to confirm benefit eligibility and current processing details. This does not imply military endorsement."],
   ["How do tours work?", "Submit a request with a preferred time. Gifted Garden will review it before confirming a visit and sharing arrival details. A request or tour does not reserve a space."],
   ["How does the waitlist work?", "The live site will explain any fee, update timing, and lawful priority factors. Joining a waitlist will not guarantee placement or a numbered position."],
 ];
@@ -60,8 +60,8 @@ function LeafMark({ small = false }: { small?: boolean }) {
 function DemoNotice() {
   return (
     <div className="prototype-notice" role="note">
-      <strong>Local prototype</strong>
-      <span>Sample content only. Business details and forms are not yet active.</span>
+      <strong>Owner review</strong>
+      <span>Verified details are being added. Forms and remaining unconfirmed information are not yet active.</span>
     </div>
   );
 }
@@ -193,7 +193,7 @@ export default function Home() {
           <div className="hero-copy">
             <span className="eyebrow">Child care in Lomita Village · San Diego, CA 92114</span>
             <h1 id="hero-title">A thoughtful place for children to <em>learn, play, and grow.</em></h1>
-            <p className="hero-lede">Gifted Garden is creating a warm path for families seeking infant, toddler, and preschool care. Exact ages and program details will be owner-verified before launch.</p>
+            <p className="hero-lede">Gifted Garden is a family home child care serving children from birth through age 5, with a small licensed capacity of 6 and care hours from 6:00 AM to 4:30 PM.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#tour">Request a Tour</a>
               <a className="button button-secondary" href="#waitlist">Join the Waitlist</a>
@@ -205,19 +205,19 @@ export default function Home() {
             <span className="eyebrow">Before publication</span>
             <h2>The essentials will be easy to verify.</h2>
             <ul>
-              <li><span>Program type</span><strong>To be confirmed</strong></li>
-              <li><span>Ages served</span><strong>To be confirmed</strong></li>
-              <li><span>Hours</span><strong>To be confirmed</strong></li>
-              <li><span>License information</span><strong>To be confirmed</strong></li>
+              <li><span>Program type</span><strong>Family home child care</strong></li>
+              <li><span>Ages served</span><strong>Birth through age 5</strong></li>
+              <li><span>Care hours</span><strong>6:00 AM–4:30 PM</strong></li>
+              <li><span>Licensed capacity</span><strong>6 children</strong></li>
             </ul>
           </aside>
         </section>
 
         <section className="trust-strip" aria-label="Key program information">
           <div><span>Location</span><strong>Lomita Village, San Diego</strong></div>
-          <div><span>Program</span><strong>Infant through preschool prototype</strong></div>
-          <div><span>Availability</span><strong>Owner update required</strong></div>
-          <div><span>Next step</span><strong>Request a conversation or tour</strong></div>
+          <div><span>Program</span><strong>Family home child care · birth–5</strong></div>
+          <div><span>Availability</span><strong>3 spaces · updated July 18, 2026</strong></div>
+          <div><span>Language</span><strong>English</strong></div>
         </section>
 
         <section className="section intro" id="program" aria-labelledby="philosophy-title">
@@ -235,7 +235,7 @@ export default function Home() {
           <div className="section-heading centered">
             <span className="eyebrow">Program fit</span>
             <h2 id="fit-title">Find the care path that fits your child.</h2>
-            <p>These program labels come from the earlier concept. Exact age ranges, capacity, schedules, and requirements remain publication blockers.</p>
+            <p>Gifted Garden serves children from birth through age 5 in a small family home child-care setting with a licensed capacity of 6.</p>
           </div>
           <div className="card-grid">
             {programCards.map((card, index) => (
@@ -316,9 +316,9 @@ export default function Home() {
             <h2 id="details-title">The facts families need to make a real decision.</h2>
           </div>
           <div className="details-grid">
-            <article><span>01</span><h3>Hours & schedules</h3><p>Days, hours, holidays, closures, and full-time or part-time options are pending owner confirmation.</p></article>
-            <article><span>02</span><h3>Tuition & fees</h3><p>The owner will choose an exact price, starting price, range, or “request current tuition” approach and disclose routine fees.</p></article>
-            <article><span>03</span><h3>Availability</h3><p>The live status will distinguish openings, limited openings, and waitlist by age, with an owner and last-reviewed date.</p></article>
+            <article><span>01</span><h3>Hours & schedules</h3><p>Care hours are 6:00 AM–4:30 PM. Before- and after-school care is available. Operating days, transportation, holidays, and closures still need confirmation.</p></article>
+            <article><span>02</span><h3>Tuition & fees</h3><p>Request current tuition and a complete fee summary. Pricing, included services, and routine fees must be verified before publication.</p></article>
+            <article><span>03</span><h3>Availability</h3><p>3 of 6 spaces are currently available. Status last updated July 18, 2026; placement remains subject to program fit and completed admission.</p></article>
           </div>
           <div className="decision-row">
             <div><strong>Need care soon?</strong><span>Request a tour and availability conversation.</span><a href="#tour">Request a Tour</a></div>
@@ -334,7 +334,7 @@ export default function Home() {
           </div>
           <div>
             <p>Gifted Garden welcomes military families and understands the need for clarity about timing, schedules, location, availability, and benefits.</p>
-            <p><strong>Fee-assistance participation is being verified.</strong> The site will not claim MCCYN or MCCYN-PLUS approval until documentation is confirmed, and it will never imply endorsement by the U.S. Department of Defense or a military branch.</p>
+            <p><strong>Military fee-assistance status is active.</strong> Families should contact Gifted Garden to confirm current eligibility and processing details. The site will not name a specific assistance program until documentation is supplied, and participation does not imply endorsement by the U.S. Department of Defense or a military branch.</p>
             <a className="text-link" href="https://www.childcareaware.org/fee-assistancerespite/military-families/" rel="noreferrer">Review official military child-care assistance information <span aria-hidden="true">↗</span></a>
           </div>
         </section>
