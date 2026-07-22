@@ -12,19 +12,19 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: origin,
     title: "Gifted Garden Child Care | Lomita Village, San Diego",
     description:
-      "Explore the Gifted Garden child-care prototype for families in Lomita Village, San Diego, and find the right next enrollment step.",
+      "Small-group family home child care for children from birth through age 5 in Lomita Village, San Diego, led by an experienced provider with an M.S. in Early Childhood Education.",
     robots: { index: false, follow: false },
     openGraph: {
       type: "website",
       title: "Gifted Garden Child Care | Lomita Village, San Diego",
-      description: "A warm, practical path for families exploring child care in Lomita Village, San Diego.",
-      images: [{ url: "/og.png", width: 1536, height: 1024, alt: "Gifted Garden — Care that helps every child grow. Lomita Village, San Diego." }],
+      description: "Small-group family home child care where every child is known, serving birth through age 5 in Lomita Village, San Diego.",
+      images: [{ url: "/og-v2.png", width: 1536, height: 1024, alt: "Gifted Garden — Small-group child care where every child is known. Lomita Village, San Diego." }],
     },
     twitter: {
       card: "summary_large_image",
       title: "Gifted Garden Child Care | Lomita Village, San Diego",
-      description: "A warm, practical path for families exploring child care in Lomita Village, San Diego.",
-      images: ["/og.png"],
+      description: "Small-group family home child care where every child is known, serving birth through age 5 in Lomita Village, San Diego.",
+      images: ["/og-v2.png"],
     },
   };
 }

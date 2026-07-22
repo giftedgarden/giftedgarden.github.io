@@ -2,19 +2,41 @@ import { EnrollmentForm } from "./EnrollmentForm";
 
 const programCards = [
   {
-    tag: "Infant care",
+    tag: "Birth & infant care",
     title: "A calm, responsive beginning",
-    copy: "Care is available from birth. Feeding support, daily supplies, and attendance schedules still need confirmation.",
+    copy: "A small-group setting gives infants room for responsive care, gentle sensory discovery, connection, and age-appropriate floor play.",
+    points: ["Responsive, relationship-based care", "Gentle sensory and movement experiences", "Individual routines discussed with each family"],
   },
   {
     tag: "Toddler care",
     title: "Room to move, wonder, and connect",
-    copy: "Gifted Garden serves toddlers through age 3. Daily routines and potty-learning expectations still need confirmation.",
+    copy: "Toddlers are supported as they build language, confidence, coordination, friendships, and everyday independence through play.",
+    points: ["Stories, music, movement, and conversation", "Creative and hands-on exploration", "Patient support for growing independence"],
   },
   {
-    tag: "Preschool",
+    tag: "Preschool through age 5",
     title: "Playful preparation for what comes next",
-    copy: "Preschool care is available through age 5. Learning practices and attendance options still need confirmation.",
+    copy: "Preschoolers practice early literacy, problem-solving, fine-motor skills, cooperation, and curiosity through guided and child-led experiences.",
+    points: ["Early literacy and school-readiness practice", "Building, art, nature, and discovery", "Social-emotional growth in a small group"],
+  },
+];
+
+const reasons = [
+  {
+    title: "A genuinely small group",
+    copy: "With a licensed capacity of six children, the setting is intentionally personal and gives each child room to be known.",
+  },
+  {
+    title: "An educated, experienced provider",
+    copy: "Dionne Panton holds an M.S. in Early Childhood Education and brings seven years of professional child-care experience.",
+  },
+  {
+    title: "Learning woven into real life",
+    copy: "Stories, creative work, movement, outdoor discovery, friendships, and practical skills all have a place in the day.",
+  },
+  {
+    title: "A home-like place to belong",
+    copy: "Children can learn and play in a close-knit environment designed around connection, steady rhythms, and growing independence.",
   },
 ];
 
@@ -32,6 +54,33 @@ const safetyItems = [
   ["Preparedness", "Emergency, illness, and return-to-care policies are reviewed with families before enrollment."],
   ["Active care", "Supervision, sanitation, and outdoor routines are designed around children’s ages and needs."],
   ["Family communication", "Families receive clear updates through the program’s verified communication process."],
+];
+
+const planningItems = [
+  {
+    label: "Daily rhythm",
+    title: "Know how the day flows",
+    copy: "The sample rhythm above covers arrival, exploration, shared routines, outdoor time, rest, and afternoon reconnection.",
+    status: "Available now",
+  },
+  {
+    label: "Meals & supplies",
+    title: "Ask what is provided",
+    copy: "Meal, snack, allergy, infant-feeding, and family-supplied item details are reviewed directly before enrollment.",
+    status: "Policy confirmation needed",
+  },
+  {
+    label: "Calendar",
+    title: "Plan around closures",
+    copy: "Operating days, holidays, planned closures, and schedule-change notice practices will be published once confirmed.",
+    status: "Calendar pending",
+  },
+  {
+    label: "Family handbook",
+    title: "Review expectations clearly",
+    copy: "Health, release, rest, illness, payment, and communication policies are discussed before a family commits to care.",
+    status: "Reviewed during enrollment",
+  },
 ];
 
 const galleryPhotos = [
@@ -145,14 +194,16 @@ export default function Home() {
           <span>Gifted Garden</span>
         </a>
         <nav aria-label="Primary navigation">
-          <a href="#program">Program</a>
+          <a href="#why">Why Gifted Garden</a>
+          <a href="#program">Ages</a>
+          <a href="#gallery">Photos</a>
           <a href="#families">Families</a>
-          <a href="#safety">Safety</a>
-          <a href="#tuition">Tuition</a>
           <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
         </nav>
-        <a className="button button-small button-primary header-cta" href="#tour">Request a Tour</a>
+        <div className="header-actions">
+          <a className="header-phone" href="tel:+16196461029" aria-label="Call Gifted Garden at 619-646-1029">Call (619) 646-1029</a>
+          <a className="button button-small button-primary header-cta" href="#tour">Request a Tour</a>
+        </div>
       </header>
 
       <main id="main">
@@ -167,46 +218,52 @@ export default function Home() {
           </div>
           <div className="hero-copy">
             <span className="eyebrow">Child care in Lomita Village · San Diego, CA 92114</span>
-            <h1 id="hero-title">A thoughtful place for children to <em>learn, play, and grow.</em></h1>
-            <p className="hero-lede">Gifted Garden is a family home child care serving children from birth through age 5, with a small licensed capacity of 6 and care hours from 6:00 AM to 4:30 PM.</p>
+            <h1 id="hero-title">Small-group child care where <em>every child is known.</em></h1>
+            <p className="hero-lede">Family home child care for children from birth through age 5, led by Dionne Panton, M.S. in Early Childhood Education. Three spaces are currently available.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#tour">Request a Tour</a>
-              <a className="button button-secondary" href="#waitlist">Join the Waitlist</a>
+              <a className="button button-secondary" href="tel:+16196461029">Call (619) 646-1029</a>
             </div>
-            <p className="location-note">Located in Lomita Village in San Diego—not Lomita, California.</p>
+            <p className="location-note">Open 6:00 AM–4:30 PM · Complete address shared after a tour is confirmed.</p>
           </div>
-          <aside className="hero-card" aria-label="Program details awaiting verification">
+          <aside className="hero-card" aria-label="Gifted Garden program highlights">
             <LeafMark />
-            <span className="eyebrow">Before publication</span>
-            <h2>The essentials will be easy to verify.</h2>
+            <span className="eyebrow">At a glance</span>
+            <h2>Personal care, grounded in early-childhood expertise.</h2>
             <ul>
-              <li><span>Program type</span><strong>Family home child care</strong></li>
-              <li><span>Ages served</span><strong>Birth through age 5</strong></li>
-              <li><span>Care hours</span><strong>6:00 AM–4:30 PM</strong></li>
-              <li><span>Licensed capacity</span><strong>6 children</strong></li>
+              <li><span>Small group</span><strong>Capacity of 6</strong></li>
+              <li><span>Provider</span><strong>M.S. Early Childhood Education</strong></li>
+              <li><span>Experience</span><strong>7 years</strong></li>
+              <li><span>Availability</span><strong>3 spaces open</strong></li>
             </ul>
           </aside>
         </section>
 
         <section className="trust-strip" aria-label="Key program information">
-          <div><span>Location</span><strong>Lomita Village, San Diego</strong></div>
-          <div><span>Program</span><strong>Family home child care · birth–5</strong></div>
-          <div><span>Availability</span><strong>3 spaces · updated July 18, 2026</strong></div>
-          <div><span>Language</span><strong>English</strong></div>
+          <div><span>Licensed setting</span><strong>Family home child care</strong></div>
+          <div><span>Ages & hours</span><strong>Birth–5 · 6:00 AM–4:30 PM</strong></div>
+          <div><span>Current availability</span><strong>3 of 6 spaces open</strong></div>
+          <div><span>Family support</span><strong>Active military fee assistance</strong></div>
         </section>
 
-        <section className="section intro" id="program" aria-labelledby="philosophy-title">
+        <section className="section proof-section" id="why" aria-labelledby="why-title">
           <div className="section-heading">
-            <span className="eyebrow">Our philosophy</span>
-            <h2 id="philosophy-title">Every child brings something worth nurturing.</h2>
+            <span className="eyebrow">Why Gifted Garden</span>
+            <h2 id="why-title">The advantages of care that stays personal.</h2>
+            <p>Families deserve more than broad promises. These are the qualities that shape the Gifted Garden experience.</p>
           </div>
-          <div className="intro-copy">
-            <p className="large-copy">At Gifted Garden, the name is intended to celebrate each child’s interests, strengths, and ways of learning—not to suggest selective admission, diagnostic testing, or guaranteed academic advancement.</p>
-            <p>The final philosophy will connect those values to observable daily practices such as play, stories, creativity, movement, outdoor exploration, and social-emotional support.</p>
+          <div className="reason-grid">
+            {reasons.map((reason, index) => (
+              <article key={reason.title}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{reason.title}</h3>
+                <p>{reason.copy}</p>
+              </article>
+            ))}
           </div>
         </section>
 
-        <section className="section soft-section" aria-labelledby="fit-title">
+        <section className="section soft-section" id="program" aria-labelledby="fit-title">
           <div className="section-heading centered">
             <span className="eyebrow">Program fit</span>
             <h2 id="fit-title">Find the care path that fits your child.</h2>
@@ -219,17 +276,20 @@ export default function Home() {
                 <span className="eyebrow">{card.tag}</span>
                 <h3>{card.title}</h3>
                 <p>{card.copy}</p>
+                <ul>
+                  {card.points.map((point) => <li key={point}>{point}</li>)}
+                </ul>
               </article>
             ))}
           </div>
-          <div className="inline-note"><strong>Potty learning:</strong> The program’s expectation will be explained here in plain language once confirmed.</div>
+          <div className="inline-note"><strong>Individual routines matter:</strong> Feeding, rest, potty learning, supplies, and attendance needs are discussed directly with each family before enrollment.</div>
         </section>
 
         <section className="section day-section" aria-labelledby="day-title">
           <div className="day-intro">
             <span className="eyebrow">A sample day</span>
             <h2 id="day-title">Familiar rhythms, with room to explore.</h2>
-            <p>This is an experience outline—not a published timetable. Times, meals, rest, outdoor routines, and age-specific adjustments must be confirmed.</p>
+            <p>This representative rhythm shows how the day can flow. Exact timing and routines adjust for children’s ages and needs and are reviewed with families during enrollment.</p>
           </div>
           <ol className="day-list">
             {dayItems.map(([title, copy], index) => (
@@ -241,11 +301,11 @@ export default function Home() {
           </ol>
         </section>
 
-        <section className="section gallery-section" aria-labelledby="gallery-title">
+        <section className="section gallery-section" id="gallery" aria-labelledby="gallery-title">
           <div className="section-heading">
             <span className="eyebrow">The environment</span>
-            <h2 id="gallery-title">See the real space before you decide.</h2>
-            <p>These authentic moments show children learning, building friendships, practicing new skills, and enjoying active play with Gifted Garden.</p>
+            <h2 id="gallery-title">A closer look at how children spend their days.</h2>
+            <p>Follow the story from friendship and early literacy to creative building, practical skills, outdoor movement, nature, and community experiences.</p>
           </div>
           <div className="gallery-grid" aria-label="Gifted Garden program moments">
             {galleryPhotos.map((photo) => (
@@ -269,7 +329,7 @@ export default function Home() {
             <span className="eyebrow">Meet the provider</span>
             <h2 id="provider-title">Care begins with the person families trust.</h2>
             <p>Dionne Panton is the child-care provider at Gifted Garden. She holds a Master of Science in Early Childhood Education and has worked as a child-care professional for seven years.</p>
-            <blockquote>CPR/first-aid status, background-check details, and additional training still need confirmation before public launch.</blockquote>
+            <p className="provider-principle"><strong>The Gifted Garden difference:</strong> a close-knit setting where care, learning, and family communication can stay personal.</p>
           </div>
         </section>
 
@@ -301,6 +361,28 @@ export default function Home() {
             <div><strong>Need care soon?</strong><span>Request a tour and availability conversation.</span><a href="#tour">Request a Tour</a></div>
             <div><strong>Planning ahead?</strong><span>Join the appropriate future-care pipeline.</span><a href="#waitlist">Join the Waitlist</a></div>
             <div><strong>Still deciding?</strong><span>Ask a short, non-sensitive question first.</span><a href="#contact">Ask a Question</a></div>
+          </div>
+        </section>
+
+        <section className="section planning-section" aria-labelledby="planning-title">
+          <div className="section-heading centered">
+            <span className="eyebrow">Plan with confidence</span>
+            <h2 id="planning-title">Practical answers for everyday family life.</h2>
+            <p>Some details are ready now; others are being verified for the family guide. Gifted Garden will publish only information the provider can stand behind.</p>
+          </div>
+          <div className="planning-grid">
+            {planningItems.map((item) => (
+              <article key={item.title}>
+                <span className="eyebrow">{item.label}</span>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+                <strong>{item.status}</strong>
+              </article>
+            ))}
+          </div>
+          <div className="verification-note" role="note">
+            <strong>Building trust carefully</strong>
+            <span>Parent testimonials, review links, social profiles, tuition, the license number, menus, and closure dates will be added only after the owner verifies them and provides any required permissions.</span>
           </div>
         </section>
 

@@ -25,7 +25,7 @@ test("renders the Gifted Garden enrollment prototype", async () => {
   assert.match(html, /Request a Tour/);
   assert.match(html, /Join the Waitlist/);
   assert.match(html, /Family home child care/);
-  assert.match(html, /Birth through age 5/);
+  assert.match(html, /birth through age 5/i);
   assert.match(html, /3 spaces/);
   assert.match(html, /6:00 AM/);
   assert.match(html, /Dionne Panton/);
