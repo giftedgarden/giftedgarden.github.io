@@ -14,7 +14,7 @@ async function render() {
   );
 }
 
-test("renders the Gifted Garden enrollment prototype", async () => {
+test("renders the private Gifted Garden owner review", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
@@ -23,7 +23,7 @@ test("renders the Gifted Garden enrollment prototype", async () => {
   assert.match(html, /<title>Gifted Garden Child Care \| Lomita Village, San Diego<\/title>/i);
   assert.match(html, /Skip to main content/);
   assert.match(html, /Request a Tour/);
-  assert.match(html, /Join the Waitlist/);
+  assert.doesNotMatch(html, /Join the Waitlist/);
   assert.match(html, /Family home child care/);
   assert.match(html, /birth through age 5/i);
   assert.match(html, /3 spaces/);
@@ -33,11 +33,11 @@ test("renders the Gifted Garden enrollment prototype", async () => {
   assert.match(html, /\/images\/dionne-panton.jpg/);
   assert.doesNotMatch(html, /Provider photograph placeholder/);
   assert.match(html, /Master of Science in Early Childhood Education/);
-  assert.match(html, /CalWORKs Child Care/);
-  assert.match(html, /YMCA Alternative Payments/);
-  assert.match(html, /CDA Child Care Payment Program/);
-  assert.match(html, /Crystal Stairs/);
-  assert.match(html, /California Tribal TANF/);
+  assert.doesNotMatch(html, /CalWORKs Child Care/);
+  assert.doesNotMatch(html, /YMCA Alternative Payments/);
+  assert.doesNotMatch(html, /Crystal Stairs/);
+  assert.doesNotMatch(html, /California Tribal TANF/);
+  assert.match(html, /Military fee assistance/);
   assert.match(html, /\(619\) 646-1029/);
   assert.match(html, /giftedgarden1@gmail.com/);
   assert.match(html, /appointment is confirmed/);
@@ -53,8 +53,8 @@ test("renders active email-preparation forms without an external form processor"
   const response = await render();
   const html = await response.text();
   assert.match(html, /Prepare Tour Request Email/);
-  assert.match(html, /Prepare Waitlist Email/);
   assert.match(html, /Prepare Question Email/);
+  assert.doesNotMatch(html, /Prepare Waitlist Email/);
   assert.doesNotMatch(html, /form setup pending/);
   assert.match(html, /Nothing is sent automatically/);
   assert.match(html, /No external form processor or analytics provider/);
@@ -66,6 +66,7 @@ test("prepares structured messages for the verified business email", async () =>
   assert.match(source, /giftedgarden1@gmail\.com/);
   assert.match(source, /Gifted Garden Tour Request/);
   assert.match(source, /Operational contact consent: Yes/);
+  assert.match(source, /How they heard about Gifted Garden/);
   assert.match(source, /encodeURIComponent/);
   assert.match(source, /window\.location\.assign\(mailto\)/);
 });

@@ -1,4 +1,6 @@
 import { EnrollmentForm } from "./EnrollmentForm";
+import { ReferralTools } from "./ReferralTools";
+import Image from "next/image";
 
 const programCards = [
   {
@@ -67,13 +69,13 @@ const planningItems = [
     label: "Meals & supplies",
     title: "Ask what is provided",
     copy: "Meal, snack, allergy, infant-feeding, and family-supplied item details are reviewed directly before enrollment.",
-    status: "Policy confirmation needed",
+    status: "Review before enrollment",
   },
   {
     label: "Calendar",
     title: "Plan around closures",
-    copy: "Operating days, holidays, planned closures, and schedule-change notice practices will be published once confirmed.",
-    status: "Calendar pending",
+    copy: "Ask for the current operating calendar, planned closures, and schedule-change notice practices before choosing care.",
+    status: "Request the current calendar",
   },
   {
     label: "Family handbook",
@@ -83,38 +85,14 @@ const planningItems = [
   },
 ];
 
-const assistancePrograms = [
-  {
-    name: "CalWORKs Child Care",
-    copy: "California child-care support for eligible families participating in CalWORKs and welfare-to-work activities.",
-    href: "https://www.cdss.ca.gov/inforesources/calworks-child-care",
-  },
-  {
-    name: "YMCA Alternative Payments",
-    copy: "State-funded child-care subsidies administered through YMCA Family Support Services for families who meet income and need requirements.",
-    href: "https://www.ymcasd.org/family-resources/paying-child-care",
-  },
-  {
-    name: "CDA Child Care Payment Program",
-    copy: "Child Development Associates helps eligible families pay for child care that meets their needs.",
-    href: "https://cdasd.org/",
-  },
-  {
-    name: "Military Fee Assistance",
-    copy: "Child Care Aware of America administers fee-assistance options for eligible military and Department of Defense families.",
-    href: "https://www.childcareaware.org/fee-assistancerespite/military-families/",
-  },
-  {
-    name: "Crystal Stairs",
-    copy: "A voucher-based child-care assistance pathway for eligible families seeking free or lower-cost care.",
-    href: "https://www.crystalstairs.org/parents-families/child-care-assistance-program-eligibility-2-2/",
-  },
-  {
-    name: "California Tribal TANF",
-    copy: "Supportive services and assistance for eligible American Indian and Alaska Native families through Tribal TANF.",
-    href: "https://sctca.net/tribal-tanf/",
-  },
-];
+const availabilityReviewed = new Date("2026-07-18T12:00:00-07:00");
+
+function currentAvailability() {
+  const ageInDays = Math.floor((Date.now() - availabilityReviewed.getTime()) / 86_400_000);
+  return ageInDays <= 7
+    ? { short: "Up to 3 spaces open", detail: "Up to 3 spaces may be available, depending on each child’s age and requested schedule." }
+    : { short: "Contact for availability", detail: "Availability changes. Contact Gifted Garden for the current age and schedule fit." };
+}
 
 const galleryPhotos = [
   {
@@ -184,17 +162,16 @@ const galleryPhotos = [
 
 const faqs = [
   ["What ages does Gifted Garden accept?", "Gifted Garden serves children from birth through age 5, including infant, toddler, and preschool stages."],
-  ["What are the hours?", "Care hours are 6:00 AM–4:30 PM. Operating days, holidays, and planned closure dates still need owner confirmation."],
-  ["Do you offer full-time or part-time care?", "Schedule options are being finalized. Families will be able to compare verified choices here before requesting a tour."],
-  ["How much is tuition?", "Please request current tuition and a complete fee summary. No price will be advertised until the amount, included services, and routine fees are verified."],
-  ["Do you have openings?", "Yes. Gifted Garden currently has 3 available spaces within a licensed capacity of 6. Availability was last updated July 18, 2026 and placement is not guaranteed until admission is complete."],
-  ["Are meals and snacks provided?", "Meal, snack, allergy, and family-supplied item policies must be confirmed. Medical records should never be sent through this website."],
-  ["Does my child need to be potty trained?", "The program’s potty-learning policy will be stated here in plain language once confirmed."],
-  ["How do rest and sick-child policies work?", "The daily rest routine and illness/return-to-care rules will be summarized here. Complete policies are reviewed during enrollment."],
-  ["Is Gifted Garden licensed?", "Gifted Garden operates as a family home child care with a capacity of 6. The license number and licensed business name must be confirmed before publication."],
-  ["Do you accept subsidies or military fee assistance?", "Yes. Gifted Garden works with CalWORKs Child Care, YMCA Alternative Payments, CDA, Child Care Aware of America military fee assistance, Crystal Stairs, and California Tribal TANF. Each agency determines eligibility, authorization, and benefit amounts."],
+  ["What are the hours?", "Care hours are 6:00 AM–4:30 PM. Ask about operating days, holidays, and planned closures when you inquire."],
+  ["Do you offer full-time or part-time care?", "Ask which full-time and part-time schedules currently fit your child’s age and desired start date."],
+  ["How much is tuition?", "Request current tuition and a complete fee summary so you can compare the schedule, included services, and routine fees that apply to your family."],
+  ["Do you have openings?", "Up to 3 spaces were reported available on July 18, 2026. Openings depend on age and schedule fit and are not guaranteed until admission is complete."],
+  ["Are meals and snacks provided?", "Ask what meals, snacks, infant feeding supplies, and other items are provided or family-supplied. Do not send medical records through this website."],
+  ["Does my child need to be potty trained?", "Ask how Gifted Garden supports potty learning for your child’s age and stage."],
+  ["How do rest and sick-child policies work?", "Rest and quiet time are part of the sample daily rhythm. Complete illness, return-to-care, and rest policies are reviewed directly with families."],
+  ["Is Gifted Garden licensed?", "Gifted Garden is a family home child-care program with a reported capacity of 6. The legal license details will be added after owner verification."],
+  ["Do you accept military fee assistance?", "Gifted Garden reports active military fee-assistance status. The administering organization determines family eligibility, authorization, funding, and benefit amounts."],
   ["How do tours work?", "Submit a request with a preferred time. Gifted Garden will review it before confirming a visit and sharing arrival details. A request or tour does not reserve a space."],
-  ["How does the waitlist work?", "The live site will explain any fee, update timing, and lawful priority factors. Joining a waitlist will not guarantee placement or a numbered position."],
 ];
 
 function LeafMark({ small = false }: { small?: boolean }) {
@@ -211,12 +188,14 @@ function DemoNotice() {
   return (
     <div className="prototype-notice" role="note">
       <strong>Owner review</strong>
-      <span>Email-preparation forms are ready for testing. A request is not sent until the parent presses Send in their email app.</span>
+      <span>This private review remains excluded from search results while owner-supplied policies and public-release details are completed.</span>
     </div>
   );
 }
 
 export default function Home() {
+  const availability = currentAvailability();
+
   return (
     <>
       <a className="skip-link" href="#main">Skip to main content</a>
@@ -227,17 +206,27 @@ export default function Home() {
           <span>Gifted Garden</span>
         </a>
         <nav aria-label="Primary navigation">
-          <a href="#why">Why Gifted Garden</a>
-          <a href="#program">Ages</a>
-          <a href="#gallery">Photos</a>
-          <a href="#families">Assistance</a>
+          <a href="#program">Program</a>
+          <a href="#tuition">Cost</a>
+          <a href="#provider">Provider</a>
+          <a href="#safety">Safety</a>
           <a href="#faq">FAQ</a>
+          <a href="#tour">Tour</a>
         </nav>
         <div className="header-actions">
           <a className="header-phone" href="tel:+16196461029" aria-label="Call Gifted Garden at 619-646-1029">Call (619) 646-1029</a>
           <a className="button button-small button-primary header-cta" href="#tour">Request a Tour</a>
         </div>
       </header>
+
+      <nav className="mobile-section-nav" aria-label="Browse Gifted Garden information">
+        <a href="#program">Program</a>
+        <a href="#tuition">Cost</a>
+        <a href="#provider">Provider</a>
+        <a href="#safety">Safety</a>
+        <a href="#faq">FAQ</a>
+        <a href="#tour">Tour</a>
+      </nav>
 
       <main id="main">
         <section className="hero" id="top" aria-labelledby="hero-title">
@@ -252,7 +241,7 @@ export default function Home() {
           <div className="hero-copy">
             <span className="eyebrow">Child care in Lomita Village · San Diego, CA 92114</span>
             <h1 id="hero-title">Where every child <em>blooms.</em></h1>
-            <p className="hero-lede">Family home child care for children from birth through age 5, led by Dionne Panton, M.S. in Early Childhood Education. Three spaces are currently available.</p>
+            <p className="hero-lede">Family home child care for children from birth through age 5, led by Dionne Panton, M.S. in Early Childhood Education. A small group makes room for care that stays personal.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#tour">Request a Tour</a>
               <a className="button button-secondary" href="tel:+16196461029">Call (619) 646-1029</a>
@@ -267,7 +256,7 @@ export default function Home() {
               <li><span>Small group</span><strong>Capacity of 6</strong></li>
               <li><span>Provider</span><strong>M.S. Early Childhood Education</strong></li>
               <li><span>Experience</span><strong>7 years</strong></li>
-              <li><span>Availability</span><strong>3 spaces open</strong></li>
+              <li><span>Availability</span><strong>{availability.short}</strong></li>
             </ul>
           </aside>
         </section>
@@ -275,7 +264,7 @@ export default function Home() {
         <section className="trust-strip" aria-label="Key program information">
           <div><span>Licensed setting</span><strong>Family home child care</strong></div>
           <div><span>Ages & hours</span><strong>Birth–5 · 6:00 AM–4:30 PM</strong></div>
-          <div><span>Current availability</span><strong>3 of 6 spaces open</strong></div>
+          <div><span>Current availability</span><strong>{availability.short}</strong></div>
           <div><span>Family support</span><strong>Active military fee assistance</strong></div>
         </section>
 
@@ -343,7 +332,12 @@ export default function Home() {
           <div className="gallery-grid" aria-label="Gifted Garden program moments">
             {galleryPhotos.map((photo) => (
               <figure className={`gallery-card ${photo.className}`} key={photo.src}>
-                <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" />
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes={photo.className === "wide" ? "(max-width: 760px) 100vw, 66vw" : "(max-width: 760px) 50vw, 34vw"}
+                />
                 <figcaption>
                   <span>{photo.eyebrow}</span>
                   <strong>{photo.title}</strong>
@@ -353,9 +347,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="provider-section" aria-labelledby="provider-title">
+        <section className="provider-section" id="provider" aria-labelledby="provider-title">
           <div className="provider-portrait">
-            <img src="/images/dionne-panton.jpg" alt="Dionne Panton, Gifted Garden child-care provider" loading="lazy" decoding="async" />
+            <Image
+              src="/images/dionne-panton.jpg"
+              alt="Dionne Panton, Gifted Garden child-care provider"
+              fill
+              sizes="(max-width: 1050px) 100vw, 45vw"
+            />
             <span>Meet Dionne Panton</span>
           </div>
           <div className="provider-copy">
@@ -377,7 +376,7 @@ export default function Home() {
               <article key={title}><span aria-hidden="true">✓</span><h3>{title}</h3><p>{copy}</p></article>
             ))}
           </div>
-          <p className="safety-footnote">Specific procedures must be verified before publication and will never expose access-control details, attendance patterns, or children’s schedules.</p>
+          <p className="safety-footnote">Detailed policies are reviewed directly with families and will never expose access-control details, attendance patterns, or children’s schedules.</p>
         </section>
 
         <section className="section details-section" id="tuition" aria-labelledby="details-title">
@@ -386,13 +385,13 @@ export default function Home() {
             <h2 id="details-title">The facts families need to make a real decision.</h2>
           </div>
           <div className="details-grid">
-            <article><span>01</span><h3>Hours & schedules</h3><p>Care hours are 6:00 AM–4:30 PM. Before- and after-school care is available. Operating days, transportation, holidays, and closures still need confirmation.</p></article>
-            <article><span>02</span><h3>Tuition & fees</h3><p>Request current tuition and a complete fee summary. Pricing, included services, and routine fees must be verified before publication.</p></article>
-            <article><span>03</span><h3>Availability</h3><p>3 of 6 spaces are currently available. Status last updated July 18, 2026; placement remains subject to program fit and completed admission.</p></article>
+            <article><span>01</span><h3>Hours & schedules</h3><p>Care hours are 6:00 AM–4:30 PM. Ask which operating days and full- or part-time schedules fit your child’s age and desired start date.</p></article>
+            <article><span>02</span><h3>Tuition & fees</h3><p>Request current tuition and a complete fee summary, including what is provided and which routine fees apply.</p></article>
+            <article><span>03</span><h3>Availability</h3><p>{availability.detail} Status last reviewed July 18, 2026; placement remains subject to program fit and completed admission.</p></article>
           </div>
           <div className="decision-row">
             <div><strong>Need care soon?</strong><span>Request a tour and availability conversation.</span><a href="#tour">Request a Tour</a></div>
-            <div><strong>Planning ahead?</strong><span>Join the appropriate future-care pipeline.</span><a href="#waitlist">Join the Waitlist</a></div>
+            <div><strong>Planning ahead?</strong><span>Ask about a future start date without sharing sensitive records.</span><a href="#contact">Ask About Future Care</a></div>
             <div><strong>Still deciding?</strong><span>Ask a short, non-sensitive question first.</span><a href="#contact">Ask a Question</a></div>
           </div>
         </section>
@@ -401,7 +400,7 @@ export default function Home() {
           <div className="section-heading centered">
             <span className="eyebrow">Plan with confidence</span>
             <h2 id="planning-title">Practical answers for everyday family life.</h2>
-            <p>Some details are ready now; others are being verified for the family guide. Gifted Garden will publish only information the provider can stand behind.</p>
+            <p>Use this guide to prepare for a useful first conversation. Exact family policies are reviewed directly before enrollment.</p>
           </div>
           <div className="planning-grid">
             {planningItems.map((item) => (
@@ -413,29 +412,24 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <div className="verification-note" role="note">
-            <strong>Building trust carefully</strong>
-            <span>Parent testimonials, review links, social profiles, tuition, the license number, menus, and closure dates will be added only after the owner verifies them and provides any required permissions.</span>
-          </div>
+          <p className="guide-reviewed">Family guide last reviewed July 22, 2026. Ask for the current handbook before enrollment.</p>
         </section>
 
         <section className="assistance-section" id="families" aria-labelledby="assistance-title">
           <div className="section-heading centered">
             <span className="eyebrow">Help paying for child care</span>
-            <h2 id="assistance-title">Gifted Garden works with six assistance pathways.</h2>
-            <p>Families using an approved subsidy, alternative-payment program, voucher, or military benefit are welcome to ask about enrollment and provider processing.</p>
+            <h2 id="assistance-title">Support for military-connected families.</h2>
+            <p>Gifted Garden reports active military fee-assistance status. Families are welcome to ask about enrollment and the provider-processing steps.</p>
           </div>
-          <div className="assistance-grid">
-            {assistancePrograms.map((program, index) => (
-              <article key={program.name}>
-                <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-                <h3>{program.name}</h3>
-                <p>{program.copy}</p>
-                <a href={program.href} rel="noreferrer">Official program information <span aria-hidden="true">↗</span></a>
-              </article>
-            ))}
+          <div className="assistance-feature">
+            <div>
+              <span className="eyebrow">Reported status: active</span>
+              <h3>Military fee assistance</h3>
+              <p>Ask Gifted Garden whether the current opening and schedule fit your family before beginning an authorization or provider-change process.</p>
+            </div>
+            <a className="button button-secondary" href="https://www.childcareaware.org/fee-assistancerespite/military-families/" rel="noreferrer">Visit official program information <span aria-hidden="true">↗</span></a>
           </div>
-          <p className="assistance-note"><strong>Important:</strong> Listing a program means Gifted Garden can work with that payment pathway; it does not guarantee that a family qualifies, that funding is available, or that an agency will authorize care. The administering organization makes those decisions.</p>
+          <p className="assistance-note"><strong>Important:</strong> Provider participation does not guarantee family eligibility, funding, authorization, or a particular benefit amount. The administering organization makes those decisions. Do not send benefit documents through this website.</p>
         </section>
 
         <section className="section enrollment-section" aria-labelledby="enrollment-title">
@@ -445,18 +439,18 @@ export default function Home() {
           </div>
           <ol className="steps-list">
             <li><span>1</span><h3>Check the basics</h3><p>Review ages, hours, tuition, availability, and location.</p></li>
-            <li><span>2</span><h3>Choose your path</h3><p>Tour for near-term care; waitlist for later plans.</p></li>
+            <li><span>2</span><h3>Share your timing</h3><p>Request a tour for near-term care or ask about a future start.</p></li>
             <li><span>3</span><h3>Visit and ask</h3><p>Meet the provider and review routines and policies.</p></li>
             <li><span>4</span><h3>Enroll securely</h3><p>Provide sensitive records later through an approved system.</p></li>
           </ol>
-          <p className="center-note">A tour request, visit, or waitlist entry does not reserve or guarantee a space.</p>
+          <p className="center-note">A tour request or visit does not reserve or guarantee a space.</p>
         </section>
 
         <section className="form-section" id="tour" aria-labelledby="tour-section-title">
           <div className="form-section-copy">
             <span className="eyebrow">Primary next step</span>
             <h2 id="tour-section-title">Come see whether Gifted Garden feels right.</h2>
-            <p>Complete the form to prepare a structured email to Gifted Garden. Tour length, child attendance guidance, identification requirements, response time, and cancellation process still need confirmation.</p>
+            <p>Complete the form to prepare a structured email to Gifted Garden. The complete address remains private until a tour is reviewed and confirmed.</p>
             <ul>
               <li>Requests are reviewed before confirmation.</li>
               <li>A requested time is not booked until confirmed.</li>
@@ -465,20 +459,6 @@ export default function Home() {
             </ul>
           </div>
           <EnrollmentForm kind="tour" />
-        </section>
-
-        <section className="form-section alternate" id="waitlist" aria-labelledby="waitlist-section-title">
-          <div className="form-section-copy">
-            <span className="eyebrow">For future care</span>
-            <h2 id="waitlist-section-title">Plan ahead without false promises.</h2>
-            <p>The waitlist’s cost, update timing, withdrawal process, and lawful priority factors must be confirmed. Gifted Garden will not promise a numbered position unless it can be maintained accurately.</p>
-            <ul>
-              <li>Placement is never guaranteed.</li>
-              <li>Age-group capacity and schedule fit may matter.</li>
-              <li>Families will have a clear update or withdrawal path.</li>
-            </ul>
-          </div>
-          <EnrollmentForm kind="waitlist" />
         </section>
 
         <section className="section faq-section" id="faq" aria-labelledby="faq-title">
@@ -513,15 +493,24 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="section referral-section" aria-labelledby="referral-title">
+          <div className="section-heading">
+            <span className="eyebrow">Share Gifted Garden</span>
+            <h2 id="referral-title">Know a family looking for small-group care?</h2>
+            <p>Send them this review link and a short, privacy-conscious introduction. The link will continue to work after the final public-release decision.</p>
+          </div>
+          <ReferralTools />
+        </section>
+
         <section className="contact-section" id="contact" aria-labelledby="contact-title">
           <div className="contact-copy">
             <span className="eyebrow">Contact</span>
             <h2 id="contact-title">A short question is a good place to start.</h2>
-            <p>Call or email Gifted Garden with a brief enrollment question. Calling hours, texting authorization, voicemail expectations, response time, and the existing-family contact path still need confirmation.</p>
+            <p>Call or email Gifted Garden with a brief enrollment question. For urgent matters or existing-family communication, use the direct channel already provided by the program.</p>
             <div className="contact-placeholder">
               <span>Business phone</span><strong><a href="tel:+16196461029">(619) 646-1029</a></strong>
               <span>Email</span><strong><a href="mailto:giftedgarden1@gmail.com">giftedgarden1@gmail.com</a></strong>
-              <span>Response time</span><strong>To be confirmed</strong>
+              <span>Tour address</span><strong>Shared after confirmation</strong>
             </div>
             <p>Do not use a website form, email, or text for emergencies or sensitive child information.</p>
           </div>
@@ -529,10 +518,10 @@ export default function Home() {
         </section>
 
         <section className="privacy-section" id="privacy" aria-labelledby="privacy-title">
-          <span className="eyebrow">Plain-language privacy notice · draft</span>
+          <span className="eyebrow">Plain-language privacy summary</span>
           <h2 id="privacy-title">Collect less. Explain clearly. Protect family information.</h2>
           <div className="privacy-columns">
-            <div><h3>What the forms will collect</h3><p>Only the limited parent contact, child age or birth month/year, timing, schedule, and request information shown above—solely to respond and evaluate program fit.</p></div>
+            <div><h3>What the forms collect</h3><p>Only the limited parent contact, child age or birth month/year, timing, schedule, referral source, and request information shown above—solely to respond and evaluate program fit.</p></div>
             <div><h3>What not to send</h3><p>Never submit medical, immunization, custody, identification, Social Security, financial, benefit, or emergency information through this website.</p></div>
             <div><h3>How email preparation works</h3><p>The form prepares a draft in the parent’s own email application. Gifted Garden receives nothing until the parent reviews the message and presses Send.</p></div>
           </div>
@@ -545,13 +534,13 @@ export default function Home() {
         <div className="footer-links">
           <a href="#program">Program</a><a href="#safety">Safety</a><a href="#tuition">Tuition</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a>
         </div>
-        <p>Owner review version. Email-preparation forms are ready for testing.</p>
+        <p>Private owner-review version · Last reviewed July 22, 2026</p>
       </footer>
 
       <nav className="mobile-actions" aria-label="Mobile enrollment actions">
         <a href="#tour">Tour</a>
         <a href="tel:+16196461029">Call</a>
-        <a href="#waitlist">Waitlist</a>
+        <a href="#tuition">Cost</a>
       </nav>
 
     </>

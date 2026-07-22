@@ -11,7 +11,7 @@ A warm, mobile-first enrollment funnel for Gifted Garden in Lomita Village, San 
 - Draft privacy notice and separate marketing consent
 - Search-friendly title and description
 - Search indexing disabled while facts and workflows remain unverified
-- Tour, waitlist, and question forms prepare structured emails in the visitor’s own email app
+- Tour and question forms prepare structured emails in the visitor’s own email app
 - No third-party form processor receives the form details; nothing is sent until the visitor presses Send
 - Verified operating facts are tracked in `PROJECT_BRIEF.md`
 
@@ -25,7 +25,7 @@ The Product Owner must verify and document:
 4. Days, hours, schedules, holidays, and closures
 5. Tuition approach, included services, and all routine fees
 6. Meals, allergies, rest, illness, and family-supplied items
-7. Tour expectations, waitlist rules, response times, and exact-location process
+7. Tour expectations, response times, and exact-location process
 8. Military fee-assistance and subsidy participation
 9. Authorized texting, calling hours, voicemail expectations, response time, and existing-family channel
 10. Long-term form, scheduling, analytics, retention, deletion, and consent workflows if the email-based approach is replaced

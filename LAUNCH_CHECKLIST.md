@@ -13,7 +13,8 @@
 
 - [x] Owner-review forms use a transparent mailto workflow with no external form processor.
 - [ ] Decide whether the email-based workflow is sufficient for public launch or approve a secure form/scheduling vendor.
-- [ ] Tour, waitlist, and inquiry workflows succeed end to end and have accessible failure fallbacks.
+- [ ] Tour and inquiry workflows succeed end to end and have accessible failure fallbacks.
+- [x] Waitlist form and claims are hidden until the owner approves its rules and retention period.
 - [ ] Required operational consent and optional marketing consent are recorded separately.
 - [ ] Processor, recipients, retention, deletion, export, privacy contact, and incident process are documented.
 - [ ] No medical, custody, financial, identity, immunization, or benefit records are collected here.

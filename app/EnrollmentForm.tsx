@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 
-type FormKind = "tour" | "waitlist" | "question";
+type FormKind = "tour" | "question";
 
 const destination = "giftedgarden1@gmail.com";
 
@@ -14,13 +14,6 @@ const formCopy = {
     intro: "Tell us what care you need and when you would like to visit. Requests are reviewed before a time is confirmed.",
     button: "Prepare Tour Request Email",
     subject: "Gifted Garden Tour Request",
-  },
-  waitlist: {
-    eyebrow: "Planning ahead",
-    title: "Join the waitlist",
-    intro: "Share your timing and flexibility. Joining will not guarantee placement or a specific position.",
-    button: "Prepare Waitlist Email",
-    subject: "Gifted Garden Waitlist Request",
   },
   question: {
     eyebrow: "Need clarity first",
@@ -44,7 +37,6 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
   const [prepared, setPrepared] = useState(false);
   const copy = formCopy[kind];
   const isTour = kind === "tour";
-  const isWaitlist = kind === "waitlist";
   const isQuestion = kind === "question";
 
   function prepareEmail(event: FormEvent<HTMLFormElement>) {
@@ -57,6 +49,7 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
       `Email: ${field(data, "email")}`,
       `Phone: ${field(data, "phone") || "Not provided"}`,
       `Preferred contact: ${field(data, "preferred-contact")}`,
+      `How they heard about Gifted Garden: ${field(data, "referral-source")}`,
     ];
 
     if (!isQuestion) {
@@ -68,7 +61,6 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
     }
 
     if (isTour) lines.push(`Preferred tour day/time: ${field(data, "tour-preference") || "No preference provided"}`);
-    if (isWaitlist) lines.push(`Schedule flexibility: ${field(data, "waitlist-flexibility") || "None provided"}`);
     if (isQuestion) lines.push("", "Question:", field(data, "question"));
 
     lines.push(
@@ -114,6 +106,19 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
           </select>
         </label>
 
+        <label className="full-field">
+          How did you hear about Gifted Garden? <span aria-hidden="true">*</span>
+          <select name="referral-source" defaultValue="" required>
+            <option value="" disabled>Select one</option>
+            <option>Family or friend</option>
+            <option>Google search or map</option>
+            <option>Military family resource</option>
+            <option>Child-care assistance agency</option>
+            <option>Community partner</option>
+            <option>Other</option>
+          </select>
+        </label>
+
         {!isQuestion && (
           <>
             <label>
@@ -130,8 +135,6 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
                 <option value="" disabled>Select a schedule</option>
                 <option>Full-time</option>
                 <option>Part-time</option>
-                <option>Before-school care</option>
-                <option>After-school care</option>
                 <option>Not sure yet</option>
               </select>
             </label>
@@ -142,12 +145,6 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
           <label className="full-field">
             Preferred tour day or time
             <input name="tour-preference" placeholder="Example: Tuesday after 4:00 PM" />
-          </label>
-        )}
-        {isWaitlist && (
-          <label className="full-field">
-            What flexibility do you have?
-            <textarea name="waitlist-flexibility" rows={3} placeholder="Start date, days, or hours that could flex" />
           </label>
         )}
         {isQuestion && (
