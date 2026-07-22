@@ -261,15 +261,15 @@ export default function Home() {
         </section>
 
         <section className="provider-section" aria-labelledby="provider-title">
-          <div className="provider-portrait" role="img" aria-label="Provider photograph placeholder">
-            <div className="portrait-shape" aria-hidden="true" />
-            <span>Verified provider photo</span>
+          <div className="provider-portrait">
+            <img src="/images/dionne-panton.jpg" alt="Dionne Panton, Gifted Garden child-care provider" loading="lazy" decoding="async" />
+            <span>Meet Dionne Panton</span>
           </div>
           <div className="provider-copy">
             <span className="eyebrow">Meet the provider</span>
             <h2 id="provider-title">Care begins with the person families trust.</h2>
             <p>Dionne Panton is the child-care provider at Gifted Garden. She holds a Master of Science in Early Childhood Education and has worked as a child-care professional for seven years.</p>
-            <blockquote>CPR/first-aid status, background-check details, additional training, and an approved professional photograph still need confirmation before public launch.</blockquote>
+            <blockquote>CPR/first-aid status, background-check details, and additional training still need confirmation before public launch.</blockquote>
           </div>
         </section>
 

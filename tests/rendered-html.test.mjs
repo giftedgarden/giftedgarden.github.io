@@ -29,6 +29,9 @@ test("renders the Gifted Garden enrollment prototype", async () => {
   assert.match(html, /3 spaces/);
   assert.match(html, /6:00 AM/);
   assert.match(html, /Dionne Panton/);
+  assert.match(html, /Dionne Panton, Gifted Garden child-care provider/);
+  assert.match(html, /\/images\/dionne-panton.jpg/);
+  assert.doesNotMatch(html, /Provider photograph placeholder/);
   assert.match(html, /Master of Science in Early Childhood Education/);
   assert.match(html, /\(619\) 646-1029/);
   assert.match(html, /giftedgarden1@gmail.com/);

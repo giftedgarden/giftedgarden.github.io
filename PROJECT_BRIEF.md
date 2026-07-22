@@ -34,7 +34,7 @@ Updated July 18, 2026.
 - Tuition and routine fees
 - Program differentiators and educational practices
 - Meal details, transportation details, and family-supplied items
-- Provider professional photograph, CPR/first-aid status, background-check details, and additional training
+- CPR/first-aid status, background-check details, and additional provider training
 - License number and exact licensed business name/DBA
 - Authorized text number, calling hours, voicemail expectations, response time, and existing-family contact path
 - Full-time and part-time schedule options
