@@ -33,6 +33,10 @@ test("renders the Gifted Garden enrollment prototype", async () => {
   assert.match(html, /\(619\) 646-1029/);
   assert.match(html, /giftedgarden1@gmail.com/);
   assert.match(html, /appointment is confirmed/);
+  assert.match(html, /Three children smiling and sharing a group hug indoors/);
+  assert.match(html, /Stories shared together/);
+  assert.match(html, /Adventures beyond the playroom/);
+  assert.doesNotMatch(html, /Future authentic photo/);
   assert.match(html, /name="robots" content="noindex, nofollow"/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/);
 });

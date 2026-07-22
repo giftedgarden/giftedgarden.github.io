@@ -7,6 +7,7 @@ A warm, mobile-first enrollment funnel for Gifted Garden in Lomita Village, San 
 - Responsive single-page enrollment journey
 - Clear Tour, Waitlist, and Question paths
 - Native keyboard-accessible FAQ
+- Curated, web-optimized photographs of real Gifted Garden program moments
 - Draft privacy notice and separate marketing consent
 - Search-friendly title and description
 - Search indexing disabled while facts and workflows remain unverified

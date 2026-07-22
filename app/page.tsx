@@ -34,6 +34,72 @@ const safetyItems = [
   ["Family communication", "Families receive clear updates through the program’s verified communication process."],
 ];
 
+const galleryPhotos = [
+  {
+    src: "/images/friendships.jpg",
+    alt: "Three children smiling and sharing a group hug indoors",
+    eyebrow: "Belonging",
+    title: "Friendships grow here",
+    className: "featured",
+  },
+  {
+    src: "/images/storytime.jpg",
+    alt: "Two children sitting together and exploring picture books",
+    eyebrow: "Early literacy",
+    title: "Stories shared together",
+    className: "wide",
+  },
+  {
+    src: "/images/early-learning.jpg",
+    alt: "A child concentrating while practicing letter formation",
+    eyebrow: "Guided discovery",
+    title: "Learning through practice",
+    className: "",
+  },
+  {
+    src: "/images/creative-building.jpg",
+    alt: "A child building a large colorful structure with magnetic tiles",
+    eyebrow: "Creative play",
+    title: "Big ideas take shape",
+    className: "",
+  },
+  {
+    src: "/images/life-skills.jpg",
+    alt: "A child practicing buttons, buckles, snaps, and a zipper",
+    eyebrow: "Independence",
+    title: "Everyday skills, patiently practiced",
+    className: "",
+  },
+  {
+    src: "/images/outdoor-movement.jpg",
+    alt: "A smiling child riding a red tricycle outdoors",
+    eyebrow: "Active play",
+    title: "Room to move",
+    className: "",
+  },
+  {
+    src: "/images/nature-discovery.jpg",
+    alt: "A child holding two yellow flowers during outdoor exploration",
+    eyebrow: "Nature",
+    title: "Small wonders, closely noticed",
+    className: "",
+  },
+  {
+    src: "/images/water-play.jpg",
+    alt: "A smiling child enjoying supervised water play",
+    eyebrow: "Sensory play",
+    title: "Joyful ways to explore",
+    className: "",
+  },
+  {
+    src: "/images/community-outing.jpg",
+    alt: "A group of children gathered together during a supervised community outing",
+    eyebrow: "Community",
+    title: "Adventures beyond the playroom",
+    className: "wide",
+  },
+];
+
 const faqs = [
   ["What ages does Gifted Garden accept?", "Gifted Garden serves children from birth through age 5, including infant, toddler, and preschool stages."],
   ["What are the hours?", "Care hours are 6:00 AM–4:30 PM. Operating days, holidays, and planned closure dates still need owner confirmation."],
@@ -179,15 +245,17 @@ export default function Home() {
           <div className="section-heading">
             <span className="eyebrow">The environment</span>
             <h2 id="gallery-title">See the real space before you decide.</h2>
-            <p>Current, permission-cleared photographs of the actual Gifted Garden environment will replace these labeled placeholders. Stock images will not be presented as the facility.</p>
+            <p>These authentic moments show children learning, building friendships, practicing new skills, and enjoying active play with Gifted Garden.</p>
           </div>
-          <div className="gallery-grid" aria-label="Photo plan for the actual program environment">
-            {["Welcome & arrival", "Learning & creativity", "Indoor play", "Meals & routines", "Rest space", "Outdoor play"].map((label, index) => (
-              <div className={`photo-placeholder photo-${index + 1}`} key={label}>
-                <LeafMark small />
-                <span>Future authentic photo</span>
-                <strong>{label}</strong>
-              </div>
+          <div className="gallery-grid" aria-label="Gifted Garden program moments">
+            {galleryPhotos.map((photo) => (
+              <figure className={`gallery-card ${photo.className}`} key={photo.src}>
+                <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" />
+                <figcaption>
+                  <span>{photo.eyebrow}</span>
+                  <strong>{photo.title}</strong>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </section>
