@@ -17,14 +17,14 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       type: "website",
       title: "Gifted Garden Child Care | Lomita Village, San Diego",
-      description: "Small-group family home child care where every child is known, serving birth through age 5 in Lomita Village, San Diego.",
-      images: [{ url: "/og-v2.png", width: 1536, height: 1024, alt: "Gifted Garden — Small-group child care where every child is known. Lomita Village, San Diego." }],
+      description: "Gifted Garden: Where every child blooms. Small-group family home child care serving birth through age 5 in Lomita Village, San Diego.",
+      images: [{ url: "/og-v3.png", width: 1536, height: 1024, alt: "Gifted Garden — Where every child blooms. Lomita Village, San Diego." }],
     },
     twitter: {
       card: "summary_large_image",
       title: "Gifted Garden Child Care | Lomita Village, San Diego",
-      description: "Small-group family home child care where every child is known, serving birth through age 5 in Lomita Village, San Diego.",
-      images: ["/og-v2.png"],
+      description: "Gifted Garden: Where every child blooms. Small-group family home child care serving birth through age 5 in Lomita Village, San Diego.",
+      images: ["/og-v3.png"],
     },
   };
 }

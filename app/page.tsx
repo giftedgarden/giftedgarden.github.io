@@ -218,7 +218,7 @@ export default function Home() {
           </div>
           <div className="hero-copy">
             <span className="eyebrow">Child care in Lomita Village · San Diego, CA 92114</span>
-            <h1 id="hero-title">Small-group child care where <em>every child is known.</em></h1>
+            <h1 id="hero-title">Where every child <em>blooms.</em></h1>
             <p className="hero-lede">Family home child care for children from birth through age 5, led by Dionne Panton, M.S. in Early Childhood Education. Three spaces are currently available.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#tour">Request a Tour</a>
