@@ -33,6 +33,11 @@ test("renders the Gifted Garden enrollment prototype", async () => {
   assert.match(html, /\/images\/dionne-panton.jpg/);
   assert.doesNotMatch(html, /Provider photograph placeholder/);
   assert.match(html, /Master of Science in Early Childhood Education/);
+  assert.match(html, /CalWORKs Child Care/);
+  assert.match(html, /YMCA Alternative Payments/);
+  assert.match(html, /CDA Child Care Payment Program/);
+  assert.match(html, /Crystal Stairs/);
+  assert.match(html, /California Tribal TANF/);
   assert.match(html, /\(619\) 646-1029/);
   assert.match(html, /giftedgarden1@gmail.com/);
   assert.match(html, /appointment is confirmed/);

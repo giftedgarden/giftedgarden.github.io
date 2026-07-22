@@ -83,6 +83,39 @@ const planningItems = [
   },
 ];
 
+const assistancePrograms = [
+  {
+    name: "CalWORKs Child Care",
+    copy: "California child-care support for eligible families participating in CalWORKs and welfare-to-work activities.",
+    href: "https://www.cdss.ca.gov/inforesources/calworks-child-care",
+  },
+  {
+    name: "YMCA Alternative Payments",
+    copy: "State-funded child-care subsidies administered through YMCA Family Support Services for families who meet income and need requirements.",
+    href: "https://www.ymcasd.org/family-resources/paying-child-care",
+  },
+  {
+    name: "CDA Child Care Payment Program",
+    copy: "Child Development Associates helps eligible families pay for child care that meets their needs.",
+    href: "https://cdasd.org/",
+  },
+  {
+    name: "Military Fee Assistance",
+    copy: "Child Care Aware of America administers fee-assistance options for eligible military and Department of Defense families.",
+    href: "https://www.childcareaware.org/fee-assistancerespite/military-families/",
+  },
+  {
+    name: "Crystal Stairs",
+    copy: "A voucher-based child-care assistance pathway for eligible families seeking free or lower-cost care.",
+    href: "https://www.crystalstairs.org/parents-families/child-care-assistance-program-eligibility-2-2/",
+  },
+  {
+    name: "California Tribal TANF",
+    copy: "Supportive services and assistance for eligible American Indian and Alaska Native families through Tribal TANF.",
+    href: "https://sctca.net/tribal-tanf/",
+  },
+];
+
 const galleryPhotos = [
   {
     src: "/images/friendships.jpg",
@@ -159,7 +192,7 @@ const faqs = [
   ["Does my child need to be potty trained?", "The program’s potty-learning policy will be stated here in plain language once confirmed."],
   ["How do rest and sick-child policies work?", "The daily rest routine and illness/return-to-care rules will be summarized here. Complete policies are reviewed during enrollment."],
   ["Is Gifted Garden licensed?", "Gifted Garden operates as a family home child care with a capacity of 6. The license number and licensed business name must be confirmed before publication."],
-  ["Do you accept subsidies or military fee assistance?", "Yes. Gifted Garden’s military fee-assistance status is active. Families should contact the program to confirm benefit eligibility and current processing details. This does not imply military endorsement."],
+  ["Do you accept subsidies or military fee assistance?", "Yes. Gifted Garden works with CalWORKs Child Care, YMCA Alternative Payments, CDA, Child Care Aware of America military fee assistance, Crystal Stairs, and California Tribal TANF. Each agency determines eligibility, authorization, and benefit amounts."],
   ["How do tours work?", "Submit a request with a preferred time. Gifted Garden will review it before confirming a visit and sharing arrival details. A request or tour does not reserve a space."],
   ["How does the waitlist work?", "The live site will explain any fee, update timing, and lawful priority factors. Joining a waitlist will not guarantee placement or a numbered position."],
 ];
@@ -197,7 +230,7 @@ export default function Home() {
           <a href="#why">Why Gifted Garden</a>
           <a href="#program">Ages</a>
           <a href="#gallery">Photos</a>
-          <a href="#families">Families</a>
+          <a href="#families">Assistance</a>
           <a href="#faq">FAQ</a>
         </nav>
         <div className="header-actions">
@@ -386,16 +419,23 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="military-section" id="families" aria-labelledby="military-title">
-          <div>
-            <span className="eyebrow">Military-connected families</span>
-            <h2 id="military-title">A warm welcome—and straightforward answers.</h2>
+        <section className="assistance-section" id="families" aria-labelledby="assistance-title">
+          <div className="section-heading centered">
+            <span className="eyebrow">Help paying for child care</span>
+            <h2 id="assistance-title">Gifted Garden works with six assistance pathways.</h2>
+            <p>Families using an approved subsidy, alternative-payment program, voucher, or military benefit are welcome to ask about enrollment and provider processing.</p>
           </div>
-          <div>
-            <p>Gifted Garden welcomes military families and understands the need for clarity about timing, schedules, location, availability, and benefits.</p>
-            <p><strong>Military fee-assistance status is active.</strong> Families should contact Gifted Garden to confirm current eligibility and processing details. The site will not name a specific assistance program until documentation is supplied, and participation does not imply endorsement by the U.S. Department of Defense or a military branch.</p>
-            <a className="text-link" href="https://www.childcareaware.org/fee-assistancerespite/military-families/" rel="noreferrer">Review official military child-care assistance information <span aria-hidden="true">↗</span></a>
+          <div className="assistance-grid">
+            {assistancePrograms.map((program, index) => (
+              <article key={program.name}>
+                <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                <h3>{program.name}</h3>
+                <p>{program.copy}</p>
+                <a href={program.href} rel="noreferrer">Official program information <span aria-hidden="true">↗</span></a>
+              </article>
+            ))}
           </div>
+          <p className="assistance-note"><strong>Important:</strong> Listing a program means Gifted Garden can work with that payment pathway; it does not guarantee that a family qualifies, that funding is available, or that an agency will authorize care. The administering organization makes those decisions.</p>
         </section>
 
         <section className="section enrollment-section" aria-labelledby="enrollment-title">
