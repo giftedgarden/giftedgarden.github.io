@@ -336,6 +336,7 @@ export default function Home() {
                   src={photo.src}
                   alt={photo.alt}
                   fill
+                  unoptimized
                   sizes={photo.className === "wide" ? "(max-width: 760px) 100vw, 66vw" : "(max-width: 760px) 50vw, 34vw"}
                 />
                 <figcaption>
@@ -353,6 +354,7 @@ export default function Home() {
               src="/images/dionne-panton.jpg"
               alt="Dionne Panton, Gifted Garden child-care provider"
               fill
+              unoptimized
               sizes="(max-width: 1050px) 100vw, 45vw"
             />
             <span>Meet Dionne Panton</span>

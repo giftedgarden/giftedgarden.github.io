@@ -31,6 +31,9 @@ test("renders the private Gifted Garden owner review", async () => {
   assert.match(html, /Dionne Panton/);
   assert.match(html, /Dionne Panton, Gifted Garden child-care provider/);
   assert.match(html, /\/images\/dionne-panton.jpg/);
+  assert.match(html, /src="\/images\/friendships.jpg"/);
+  assert.match(html, /src="\/images\/community-outing.jpg"/);
+  assert.doesNotMatch(html, /\/_vinext\/image\?/);
   assert.doesNotMatch(html, /Provider photograph placeholder/);
   assert.match(html, /Master of Science in Early Childhood Education/);
   assert.doesNotMatch(html, /CalWORKs Child Care/);
