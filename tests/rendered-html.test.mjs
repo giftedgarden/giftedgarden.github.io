@@ -26,6 +26,10 @@ test("renders the private Gifted Garden owner review", async () => {
   assert.doesNotMatch(html, /Join the Waitlist/);
   assert.match(html, /Family home child care/);
   assert.match(html, /birth through age 5/i);
+  assert.match(html, /\/brand\/gifted-garden-horizontal.png/);
+  assert.match(html, /\/brand\/gifted-garden-elephant.png/);
+  assert.match(html, /\/brand\/gifted-garden-seal.png/);
+  assert.match(html, /\/og-brand.png/);
   assert.match(html, /3 spaces/);
   assert.match(html, /6:00 AM/);
   assert.match(html, /Dionne Panton/);

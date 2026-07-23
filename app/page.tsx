@@ -174,11 +174,13 @@ const faqs = [
   ["How do tours work?", "Submit a request with a preferred time. Gifted Garden will review it before confirming a visit and sharing arrival details. A request or tour does not reserve a space."],
 ];
 
-function LeafMark({ small = false }: { small?: boolean }) {
+function LavenderMark({ small = false }: { small?: boolean }) {
   return (
-    <span className={small ? "leaf-mark small" : "leaf-mark"} aria-hidden="true">
-      <span />
-      <span />
+    <span className={small ? "lavender-mark small" : "lavender-mark"} aria-hidden="true">
+      <i />
+      <i />
+      <i />
+      <i />
       <i />
     </span>
   );
@@ -202,8 +204,14 @@ export default function Home() {
       <DemoNotice />
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Gifted Garden home">
-          <LeafMark small />
-          <span>Gifted Garden</span>
+          <Image
+            src="/brand/gifted-garden-horizontal.png"
+            alt="Gifted Garden Childcare Service"
+            width={1774}
+            height={575}
+            unoptimized
+            priority
+          />
         </a>
         <nav aria-label="Primary navigation">
           <a href="#program">Program</a>
@@ -232,11 +240,10 @@ export default function Home() {
         <section className="hero" id="top" aria-labelledby="hero-title">
           <div className="hero-art" aria-hidden="true">
             <span className="sun" />
-            <span className="hill hill-one" />
-            <span className="hill hill-two" />
-            <span className="sprout sprout-one" />
-            <span className="sprout sprout-two" />
-            <span className="sprout sprout-three" />
+            <span className="garden-arch garden-arch-one" />
+            <span className="garden-arch garden-arch-two" />
+            <span className="lavender-field lavender-field-one" />
+            <span className="lavender-field lavender-field-two" />
           </div>
           <div className="hero-copy">
             <span className="eyebrow">Child care in Lomita Village · San Diego, CA 92114</span>
@@ -249,7 +256,17 @@ export default function Home() {
             <p className="location-note">Open 6:00 AM–4:30 PM · Complete address shared after a tour is confirmed.</p>
           </div>
           <aside className="hero-card" aria-label="Gifted Garden program highlights">
-            <LeafMark />
+            <div className="mascot-stage">
+              <Image
+                src="/brand/gifted-garden-elephant.png"
+                alt=""
+                width={1254}
+                height={1254}
+                unoptimized
+                priority
+              />
+              <span className="brand-sparkle" aria-hidden="true">✦</span>
+            </div>
             <span className="eyebrow">At a glance</span>
             <h2>Personal care, grounded in early-childhood expertise.</h2>
             <ul>
@@ -483,7 +500,7 @@ export default function Home() {
           <div className="map-card" aria-hidden="true">
             <span className="map-road road-one" />
             <span className="map-road road-two" />
-            <span className="map-dot"><LeafMark small /></span>
+            <span className="map-dot"><LavenderMark small /></span>
             <strong>Lomita Village</strong>
             <small>San Diego · 92114</small>
           </div>
@@ -496,10 +513,20 @@ export default function Home() {
         </section>
 
         <section className="section referral-section" aria-labelledby="referral-title">
-          <div className="section-heading">
-            <span className="eyebrow">Share Gifted Garden</span>
-            <h2 id="referral-title">Know a family looking for small-group care?</h2>
-            <p>Send them this review link and a short, privacy-conscious introduction. The link will continue to work after the final public-release decision.</p>
+          <div className="referral-brand-layout">
+            <div className="section-heading">
+              <span className="eyebrow">Share Gifted Garden</span>
+              <h2 id="referral-title">Know a family looking for small-group care?</h2>
+              <p>Send them this review link and a short, privacy-conscious introduction. The link will continue to work after the final public-release decision.</p>
+            </div>
+            <Image
+              className="decorative-seal"
+              src="/brand/gifted-garden-seal.png"
+              alt="Gifted Garden Childcare Service decorative garden seal"
+              width={1254}
+              height={1254}
+              unoptimized
+            />
           </div>
           <ReferralTools />
         </section>
@@ -532,7 +559,16 @@ export default function Home() {
       </main>
 
       <footer className="site-footer">
-        <div className="footer-brand"><LeafMark small /><strong>Gifted Garden</strong><span>Lomita Village · San Diego, CA 92114</span></div>
+        <div className="footer-brand">
+          <Image
+            src="/brand/gifted-garden-horizontal.png"
+            alt="Gifted Garden Childcare Service"
+            width={1774}
+            height={575}
+            unoptimized
+          />
+          <span>Lomita Village · San Diego, CA 92114</span>
+        </div>
         <div className="footer-links">
           <a href="#program">Program</a><a href="#safety">Safety</a><a href="#tuition">Tuition</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a>
         </div>
