@@ -1,5 +1,4 @@
 import { EnrollmentForm } from "./EnrollmentForm";
-import { ReferralTools } from "./ReferralTools";
 import Image from "next/image";
 
 const programCards = [
@@ -26,7 +25,7 @@ const programCards = [
 const reasons = [
   {
     title: "A genuinely small group",
-    copy: "With a licensed capacity of six children, the setting is intentionally personal and gives each child room to be known.",
+    copy: "With an owner-reported capacity of six children, the setting is intentionally personal and gives each child room to be known.",
   },
   {
     title: "An educated, experienced provider",
@@ -85,14 +84,10 @@ const planningItems = [
   },
 ];
 
-const availabilityReviewed = new Date("2026-07-18T12:00:00-07:00");
-
-function currentAvailability() {
-  const ageInDays = Math.floor((Date.now() - availabilityReviewed.getTime()) / 86_400_000);
-  return ageInDays <= 7
-    ? { short: "Up to 3 spaces open", detail: "Up to 3 spaces may be available, depending on each child’s age and requested schedule." }
-    : { short: "Contact for availability", detail: "Availability changes. Contact Gifted Garden for the current age and schedule fit." };
-}
+const availability = {
+  short: "Contact for current availability",
+  detail: "Availability changes by age and schedule. Contact Gifted Garden for the current fit.",
+};
 
 const galleryPhotos = [
   {
@@ -165,7 +160,7 @@ const faqs = [
   ["What are the hours?", "Care hours are 6:00 AM–4:30 PM. Ask about operating days, holidays, and planned closures when you inquire."],
   ["Do you offer full-time or part-time care?", "Ask which full-time and part-time schedules currently fit your child’s age and desired start date."],
   ["How much is tuition?", "Request current tuition and a complete fee summary so you can compare the schedule, included services, and routine fees that apply to your family."],
-  ["Do you have openings?", "Up to 3 spaces were reported available on July 18, 2026. Openings depend on age and schedule fit and are not guaranteed until admission is complete."],
+  ["Do you have openings?", "Availability changes by age and schedule. Contact Gifted Garden for the current fit; a space is not guaranteed until admission is complete."],
   ["Are meals and snacks provided?", "Ask what meals, snacks, infant feeding supplies, and other items are provided or family-supplied. Do not send medical records through this website."],
   ["Does my child need to be potty trained?", "Ask how Gifted Garden supports potty learning for your child’s age and stage."],
   ["How do rest and sick-child policies work?", "Rest and quiet time are part of the sample daily rhythm. Complete illness, return-to-care, and rest policies are reviewed directly with families."],
@@ -189,15 +184,13 @@ function LavenderMark({ small = false }: { small?: boolean }) {
 function DemoNotice() {
   return (
     <div className="prototype-notice" role="note">
-      <strong>Owner review</strong>
-      <span>This private review remains excluded from search results while owner-supplied policies and public-release details are completed.</span>
+      <strong>Enrollment preview</strong>
+      <span>Inquiries are welcome while final license details, policies, and public-release information are confirmed.</span>
     </div>
   );
 }
 
 export default function Home() {
-  const availability = currentAvailability();
-
   return (
     <>
       <a className="skip-link" href="#main">Skip to main content</a>
@@ -205,7 +198,7 @@ export default function Home() {
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Gifted Garden home">
           <Image
-            src="/brand/gifted-garden-horizontal.png"
+            src="/brand/gifted-garden-horizontal.webp"
             alt="Gifted Garden Childcare Service"
             width={1774}
             height={575}
@@ -258,19 +251,18 @@ export default function Home() {
           <aside className="hero-card" aria-label="Gifted Garden program highlights">
             <div className="mascot-stage">
               <Image
-                src="/brand/gifted-garden-elephant.png"
+                src="/brand/gifted-garden-elephant.webp"
                 alt=""
                 width={1254}
                 height={1254}
                 unoptimized
-                priority
               />
               <span className="brand-sparkle" aria-hidden="true">✦</span>
             </div>
             <span className="eyebrow">At a glance</span>
             <h2>Personal care, grounded in early-childhood expertise.</h2>
             <ul>
-              <li><span>Small group</span><strong>Capacity of 6</strong></li>
+              <li><span>Small group</span><strong>Reported capacity: 6</strong></li>
               <li><span>Provider</span><strong>M.S. Early Childhood Education</strong></li>
               <li><span>Experience</span><strong>7 years</strong></li>
               <li><span>Availability</span><strong>{availability.short}</strong></li>
@@ -279,10 +271,10 @@ export default function Home() {
         </section>
 
         <section className="trust-strip" aria-label="Key program information">
-          <div><span>Licensed setting</span><strong>Family home child care</strong></div>
+          <div><span>Program type</span><strong>Family home child care</strong></div>
           <div><span>Ages & hours</span><strong>Birth–5 · 6:00 AM–4:30 PM</strong></div>
           <div><span>Current availability</span><strong>{availability.short}</strong></div>
-          <div><span>Family support</span><strong>Active military fee assistance</strong></div>
+          <div><span>Owner-reported support</span><strong>Military fee-assistance status: active</strong></div>
         </section>
 
         <section className="section proof-section" id="why" aria-labelledby="why-title">
@@ -306,7 +298,7 @@ export default function Home() {
           <div className="section-heading centered">
             <span className="eyebrow">Program fit</span>
             <h2 id="fit-title">Find the care path that fits your child.</h2>
-            <p>Gifted Garden serves children from birth through age 5 in a small family home child-care setting with a licensed capacity of 6.</p>
+            <p>Gifted Garden serves children from birth through age 5 in a small family home child-care setting with an owner-reported capacity of 6.</p>
           </div>
           <div className="card-grid">
             {programCards.map((card, index) => (
@@ -406,7 +398,7 @@ export default function Home() {
           <div className="details-grid">
             <article><span>01</span><h3>Hours & schedules</h3><p>Care hours are 6:00 AM–4:30 PM. Ask which operating days and full- or part-time schedules fit your child’s age and desired start date.</p></article>
             <article><span>02</span><h3>Tuition & fees</h3><p>Request current tuition and a complete fee summary, including what is provided and which routine fees apply.</p></article>
-            <article><span>03</span><h3>Availability</h3><p>{availability.detail} Status last reviewed July 18, 2026; placement remains subject to program fit and completed admission.</p></article>
+            <article><span>03</span><h3>Availability</h3><p>{availability.detail} Placement remains subject to program fit and completed admission.</p></article>
           </div>
           <div className="decision-row">
             <div><strong>Need care soon?</strong><span>Request a tour and availability conversation.</span><a href="#tour">Request a Tour</a></div>
@@ -446,7 +438,7 @@ export default function Home() {
               <h3>Military fee assistance</h3>
               <p>Ask Gifted Garden whether the current opening and schedule fit your family before beginning an authorization or provider-change process.</p>
             </div>
-            <a className="button button-secondary" href="https://www.childcareaware.org/fee-assistancerespite/military-families/" rel="noreferrer">Visit official program information <span aria-hidden="true">↗</span></a>
+            <a className="button button-secondary" href="https://www.childcareaware.org/fee-assistancerespite/military-families/" rel="noopener noreferrer">Visit official program information <span aria-hidden="true">↗</span></a>
           </div>
           <p className="assistance-note"><strong>Important:</strong> Provider participation does not guarantee family eligibility, funding, authorization, or a particular benefit amount. The administering organization makes those decisions. Do not send benefit documents through this website.</p>
         </section>
@@ -512,25 +504,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section referral-section" aria-labelledby="referral-title">
-          <div className="referral-brand-layout">
-            <div className="section-heading">
-              <span className="eyebrow">Share Gifted Garden</span>
-              <h2 id="referral-title">Know a family looking for small-group care?</h2>
-              <p>Send them this review link and a short, privacy-conscious introduction. The link will continue to work after the final public-release decision.</p>
-            </div>
-            <Image
-              className="decorative-seal"
-              src="/brand/gifted-garden-seal.png"
-              alt="Gifted Garden Childcare Service decorative garden seal"
-              width={1254}
-              height={1254}
-              unoptimized
-            />
-          </div>
-          <ReferralTools />
-        </section>
-
         <section className="contact-section" id="contact" aria-labelledby="contact-title">
           <div className="contact-copy">
             <span className="eyebrow">Contact</span>
@@ -550,18 +523,18 @@ export default function Home() {
           <span className="eyebrow">Plain-language privacy summary</span>
           <h2 id="privacy-title">Collect less. Explain clearly. Protect family information.</h2>
           <div className="privacy-columns">
-            <div><h3>What the forms collect</h3><p>Only the limited parent contact, child age or birth month/year, timing, schedule, referral source, and request information shown above—solely to respond and evaluate program fit.</p></div>
+            <div><h3>What the forms collect</h3><p>Only the limited parent contact, child age or birth month/year, timing, schedule, and request information shown above—solely to respond and evaluate program fit.</p></div>
             <div><h3>What not to send</h3><p>Never submit medical, immunization, custody, identification, Social Security, financial, benefit, or emergency information through this website.</p></div>
             <div><h3>How email preparation works</h3><p>The form prepares a draft in the parent’s own email application. Gifted Garden receives nothing until the parent reviews the message and presses Send.</p></div>
           </div>
-          <p className="privacy-bottom">No external form processor or analytics provider receives these form details. The parent’s email provider processes the message after they choose Send. Operational contact consent remains separate from optional, unselected marketing consent.</p>
+          <p className="privacy-bottom">No external form processor or analytics provider receives these form details. The parent’s email provider processes the message only after they choose Send. Gifted Garden requests permission only to respond to that inquiry.</p>
         </section>
       </main>
 
       <footer className="site-footer">
         <div className="footer-brand">
           <Image
-            src="/brand/gifted-garden-horizontal.png"
+            src="/brand/gifted-garden-horizontal.webp"
             alt="Gifted Garden Childcare Service"
             width={1774}
             height={575}
@@ -572,7 +545,7 @@ export default function Home() {
         <div className="footer-links">
           <a href="#program">Program</a><a href="#safety">Safety</a><a href="#tuition">Tuition</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a>
         </div>
-        <p>Private owner-review version · Last reviewed July 22, 2026</p>
+        <p>Enrollment preview · Last reviewed July 23, 2026</p>
       </footer>
 
       <nav className="mobile-actions" aria-label="Mobile enrollment actions">

@@ -14,7 +14,7 @@ async function render() {
   );
 }
 
-test("renders the private Gifted Garden owner review", async () => {
+test("renders the Gifted Garden enrollment preview", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
@@ -26,11 +26,12 @@ test("renders the private Gifted Garden owner review", async () => {
   assert.doesNotMatch(html, /Join the Waitlist/);
   assert.match(html, /Family home child care/);
   assert.match(html, /birth through age 5/i);
-  assert.match(html, /\/brand\/gifted-garden-horizontal.png/);
-  assert.match(html, /\/brand\/gifted-garden-elephant.png/);
-  assert.match(html, /\/brand\/gifted-garden-seal.png/);
-  assert.match(html, /\/og-brand.png/);
-  assert.match(html, /3 spaces/);
+  assert.match(html, /\/brand\/gifted-garden-horizontal.webp/);
+  assert.match(html, /\/brand\/gifted-garden-elephant.webp/);
+  assert.doesNotMatch(html, /gifted-garden-seal/);
+  assert.match(html, /https:\/\/giftedgarden\.github\.io\/og-brand\.webp/);
+  assert.match(html, /Contact for current availability/);
+  assert.doesNotMatch(html, /3 spaces/);
   assert.match(html, /6:00 AM/);
   assert.match(html, /Dionne Panton/);
   assert.match(html, /Dionne Panton, Gifted Garden child-care provider/);
@@ -53,6 +54,8 @@ test("renders the private Gifted Garden owner review", async () => {
   assert.match(html, /Adventures beyond the playroom/);
   assert.doesNotMatch(html, /Future authentic photo/);
   assert.match(html, /name="robots" content="noindex, nofollow"/i);
+  assert.match(html, /Enrollment preview/);
+  assert.doesNotMatch(html, /Private owner-review version/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/);
 });
 
@@ -73,7 +76,9 @@ test("prepares structured messages for the verified business email", async () =>
   assert.match(source, /giftedgarden1@gmail\.com/);
   assert.match(source, /Gifted Garden Tour Request/);
   assert.match(source, /Operational contact consent: Yes/);
-  assert.match(source, /How they heard about Gifted Garden/);
+  assert.doesNotMatch(source, /How they heard about Gifted Garden/);
+  assert.doesNotMatch(source, /marketing-consent/);
+  assert.match(source, /navigator\.clipboard\.writeText\(destination\)/);
   assert.match(source, /encodeURIComponent/);
   assert.match(source, /window\.location\.assign\(mailto\)/);
 });

@@ -3,6 +3,19 @@
 Ready-to-upload social assets matching the Gifted Garden website and its current
 brand system.
 
+## Publishing Status
+
+- **Ready after owner approval:** profile image, platform covers, Request a Tour,
+  Welcome to Gifted Garden, and Story Highlight covers.
+- **Hold until the fact is reconfirmed:** `posts/enrollment-openings.png`. The
+  “Now Enrolling” message is time-sensitive; verify current age and schedule fit
+  on the day it is posted.
+- **Hold until written image and wording approval is confirmed:**
+  `posts/meet-dionne-panton.png` and any social post using identifiable provider
+  or child photography.
+- **Ready after a verified review destination exists:**
+  `posts/review-request.png`.
+
 ## Profile
 
 - `profile/gifted-garden-profile.png` — 1080 × 1080 universal profile image for
@@ -55,6 +68,19 @@ small profile sizes.
 - The tagline remains outside the primary logo.
 - Real child photography should only be posted when the appropriate permissions
   are on file.
+
+## Suggested Accessible Alt Text
+
+- Profile: “Purple Gifted Garden elephant mascot inside a green and purple
+  circular border.”
+- Cover: “Gifted Garden Childcare Service — Where Every Child Blooms — in Lomita
+  Village, San Diego, with a purple elephant in a lavender garden.”
+- Request a Tour: “Gifted Garden invitation to request a child-care tour in
+  Lomita Village, San Diego.”
+- Provider: “Dionne Panton, Gifted Garden provider, with her early-childhood
+  education and experience highlighted.”
+- Review request: “Gifted Garden invitation for families to share their
+  experience.”
 
 ## Generation Notes
 

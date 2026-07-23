@@ -29,12 +29,9 @@ function field(data: FormData, name: string) {
   return typeof value === "string" ? value.trim() : "";
 }
 
-function checked(data: FormData, name: string) {
-  return data.get(name) === "on" ? "Yes" : "No";
-}
-
 export function EnrollmentForm({ kind }: { kind: FormKind }) {
   const [prepared, setPrepared] = useState(false);
+  const [copyStatus, setCopyStatus] = useState("");
   const copy = formCopy[kind];
   const isTour = kind === "tour";
   const isQuestion = kind === "question";
@@ -49,7 +46,6 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
       `Email: ${field(data, "email")}`,
       `Phone: ${field(data, "phone") || "Not provided"}`,
       `Preferred contact: ${field(data, "preferred-contact")}`,
-      `How they heard about Gifted Garden: ${field(data, "referral-source")}`,
     ];
 
     if (!isQuestion) {
@@ -66,7 +62,6 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
     lines.push(
       "",
       "Operational contact consent: Yes",
-      `Optional marketing updates: ${checked(data, "marketing-consent")}`,
       "",
       "I understand that this email does not confirm a tour, reserve a space, or guarantee placement.",
     );
@@ -74,6 +69,15 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
     const mailto = `mailto:${destination}?subject=${encodeURIComponent(copy.subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
     setPrepared(true);
     window.location.assign(mailto);
+  }
+
+  async function copyEmailAddress() {
+    try {
+      await navigator.clipboard.writeText(destination);
+      setCopyStatus("Email address copied.");
+    } catch {
+      setCopyStatus(`Copy was unavailable. The address is ${destination}.`);
+    }
   }
 
   return (
@@ -103,19 +107,6 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
             <option value="" disabled>Select a contact method</option>
             <option>Email</option>
             <option>Phone call</option>
-          </select>
-        </label>
-
-        <label className="full-field">
-          How did you hear about Gifted Garden? <span aria-hidden="true">*</span>
-          <select name="referral-source" defaultValue="" required>
-            <option value="" disabled>Select one</option>
-            <option>Family or friend</option>
-            <option>Google search or map</option>
-            <option>Military family resource</option>
-            <option>Child-care assistance agency</option>
-            <option>Community partner</option>
-            <option>Other</option>
           </select>
         </label>
 
@@ -159,10 +150,6 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
         <input type="checkbox" name="contact-consent" required />
         <span>I agree that Gifted Garden may contact me about this request. This is not marketing consent. <span aria-hidden="true">*</span></span>
       </label>
-      <label className="check-row">
-        <input type="checkbox" name="marketing-consent" />
-        <span>Optional: I would like occasional program or availability updates. I can unsubscribe at any time.</span>
-      </label>
       <p className="privacy-hint">
         Do not include medical, custody, financial, identification, benefit, or emergency information. Read the <a href="#privacy">privacy notice</a>.
       </p>
@@ -172,7 +159,11 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
           ? "Your email app should be open with a prepared message. Your request is not sent until you review it and press Send."
           : `Selecting this button opens your email app with a prepared message to ${destination}. Nothing is sent automatically.`}
       </p>
-      <p className="direct-fallback">Email app did not open? <a href={`mailto:${destination}`}>Email Gifted Garden directly</a> or call <a href="tel:+16196461029">(619) 646-1029</a>.</p>
+      <div className="direct-fallback">
+        <strong>Email app did not open?</strong>
+        <span><a href={`mailto:${destination}`}>Email Gifted Garden directly</a>, call <a href="tel:+16196461029">(619) 646-1029</a>, or <button type="button" onClick={copyEmailAddress}>copy the email address</button>.</span>
+        <span className="copy-status" role="status" aria-live="polite">{copyStatus}</span>
+      </div>
     </form>
   );
 }

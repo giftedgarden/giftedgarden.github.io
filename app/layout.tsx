@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import "@fontsource/fredoka/500.css";
 import "@fontsource/fredoka/600.css";
 import "@fontsource/fredoka/700.css";
@@ -10,10 +9,7 @@ import "@fontsource/nunito-sans/800.css";
 import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
-  const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const origin = new URL(`${protocol}://${host}`);
+  const origin = new URL("https://giftedgarden.github.io");
 
   return {
     metadataBase: origin,
@@ -29,13 +25,13 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       title: "Gifted Garden Child Care | Lomita Village, San Diego",
       description: "Gifted Garden: Where every child blooms. Small-group family home child care serving birth through age 5 in Lomita Village, San Diego.",
-      images: [{ url: "/og-brand.png", width: 1200, height: 630, alt: "Gifted Garden Childcare Service — Where Every Child Blooms. Lomita Village, San Diego." }],
+      images: [{ url: "/og-brand.webp", width: 1200, height: 630, alt: "Gifted Garden Childcare Service — Where Every Child Blooms. Lomita Village, San Diego." }],
     },
     twitter: {
       card: "summary_large_image",
       title: "Gifted Garden Child Care | Lomita Village, San Diego",
       description: "Gifted Garden: Where every child blooms. Small-group family home child care serving birth through age 5 in Lomita Village, San Diego.",
-      images: ["/og-brand.png"],
+      images: ["/og-brand.webp"],
     },
   };
 }
