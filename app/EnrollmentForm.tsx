@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 
-type FormKind = "tour" | "question";
+type FormKind = "tour" | "waitlist" | "question";
 
 const destination = "giftedgarden1@gmail.com";
 
@@ -14,6 +14,13 @@ const formCopy = {
     intro: "Tell us what care you need and when you would like to visit. Requests are reviewed before a time is confirmed.",
     button: "Prepare Tour Request Email",
     subject: "Gifted Garden Tour Request",
+  },
+  waitlist: {
+    eyebrow: "Planning ahead",
+    title: "Join the waitlist",
+    intro: "Share your preferred start timing and care needs. Gifted Garden will follow up about availability and next steps.",
+    button: "Prepare Waitlist Request Email",
+    subject: "Gifted Garden Waitlist Request",
   },
   question: {
     eyebrow: "Need clarity first",
@@ -124,8 +131,8 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
               Schedule needed <span aria-hidden="true">*</span>
               <select name="schedule" defaultValue="" required>
                 <option value="" disabled>Select a schedule</option>
-                <option>Full-time</option>
-                <option>Part-time</option>
+                <option>Full-time first shift, Monday–Friday</option>
+                <option>24-hour or weekend care to discuss</option>
                 <option>Not sure yet</option>
               </select>
             </label>

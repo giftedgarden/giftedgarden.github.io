@@ -14,7 +14,7 @@ async function render() {
   );
 }
 
-test("renders the Gifted Garden enrollment preview", async () => {
+test("renders the public Gifted Garden enrollment website", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
@@ -23,7 +23,8 @@ test("renders the Gifted Garden enrollment preview", async () => {
   assert.match(html, /<title>Gifted Garden Child Care \| Lomita Village, San Diego<\/title>/i);
   assert.match(html, /Skip to main content/);
   assert.match(html, /Request a Tour/);
-  assert.doesNotMatch(html, /Join the Waitlist/);
+  assert.match(html, /Join the Waitlist/);
+  assert.match(html, /Prepare Waitlist Request Email/);
   assert.match(html, /Family home child care/);
   assert.match(html, /birth through age 5/i);
   assert.match(html, /\/brand\/gifted-garden-horizontal.webp/);
@@ -33,6 +34,18 @@ test("renders the Gifted Garden enrollment preview", async () => {
   assert.match(html, /Contact for current availability/);
   assert.doesNotMatch(html, /3 spaces/);
   assert.match(html, /6:00 AM/);
+  assert.match(html, /Monday through Friday/);
+  assert.match(html, /Dionne Panton Family Child Care/);
+  assert.match(html, /Small Family Child Care Home/);
+  assert.match(html, /376628431/);
+  assert.match(html, /Active and in good standing/);
+  assert.match(html, /no resident children currently count/i);
+  assert.match(html, /full-time first shift/i);
+  assert.match(html, /Twenty-four-hour and weekend care may be negotiated as needed/);
+  assert.match(html, /late pickup, late payment, and returned payments/);
+  assert.match(html, /Pickup and drop-off transportation may be negotiated for schools within a five-mile radius/);
+  assert.match(html, /December 24–January 1/);
+  assert.match(html, /https:\/\/cdss\.ca\.gov\/inforesources\/community-care-licensing\/facility-search-welcome/);
   assert.match(html, /Dionne Panton/);
   assert.match(html, /Dionne Panton, Gifted Garden child-care provider/);
   assert.match(html, /\/images\/dionne-panton.jpg/);
@@ -53,8 +66,8 @@ test("renders the Gifted Garden enrollment preview", async () => {
   assert.match(html, /Stories shared together/);
   assert.match(html, /Adventures beyond the playroom/);
   assert.doesNotMatch(html, /Future authentic photo/);
-  assert.match(html, /name="robots" content="noindex, nofollow"/i);
-  assert.match(html, /Enrollment preview/);
+  assert.match(html, /name="robots" content="index, follow"/i);
+  assert.doesNotMatch(html, /Enrollment preview/);
   assert.doesNotMatch(html, /Private owner-review version/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/);
 });
@@ -64,7 +77,7 @@ test("renders active email-preparation forms without an external form processor"
   const html = await response.text();
   assert.match(html, /Prepare Tour Request Email/);
   assert.match(html, /Prepare Question Email/);
-  assert.doesNotMatch(html, /Prepare Waitlist Email/);
+  assert.match(html, /Prepare Waitlist Request Email/);
   assert.doesNotMatch(html, /form setup pending/);
   assert.match(html, /Nothing is sent automatically/);
   assert.match(html, /No external form processor or analytics provider/);
@@ -75,6 +88,7 @@ test("prepares structured messages for the verified business email", async () =>
   assert.match(source, /mailto:\$\{destination\}/);
   assert.match(source, /giftedgarden1@gmail\.com/);
   assert.match(source, /Gifted Garden Tour Request/);
+  assert.match(source, /Gifted Garden Waitlist Request/);
   assert.match(source, /Operational contact consent: Yes/);
   assert.doesNotMatch(source, /How they heard about Gifted Garden/);
   assert.doesNotMatch(source, /marketing-consent/);

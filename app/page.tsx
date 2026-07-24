@@ -25,7 +25,7 @@ const programCards = [
 const reasons = [
   {
     title: "A genuinely small group",
-    copy: "With an owner-reported capacity of six children, the setting is intentionally personal and gives each child room to be known.",
+    copy: "With a licensed capacity of six children, the setting is intentionally personal and gives each child room to be known.",
   },
   {
     title: "An educated, experienced provider",
@@ -73,8 +73,8 @@ const planningItems = [
   {
     label: "Calendar",
     title: "Plan around closures",
-    copy: "Ask for the current operating calendar, planned closures, and schedule-change notice practices before choosing care.",
-    status: "Request the current calendar",
+    copy: "Gifted Garden closes for Martin Luther King Jr. Day, Memorial Day, Juneteenth, Independence Day, Labor Day, Veterans Day, Thanksgiving Day, the day after Thanksgiving, and December 24–January 1.",
+    status: "Monday–Friday care calendar",
   },
   {
     label: "Family handbook",
@@ -87,6 +87,14 @@ const planningItems = [
 const availability = {
   short: "Contact for current availability",
   detail: "Availability changes by age and schedule. Contact Gifted Garden for the current fit.",
+};
+
+const licensing = {
+  legalName: "Dionne Panton Family Child Care",
+  classification: "Small Family Child Care Home",
+  licenseNumber: "376628431",
+  capacity: "6 children",
+  facilitySearchUrl: "https://cdss.ca.gov/inforesources/community-care-licensing/facility-search-welcome",
 };
 
 const galleryPhotos = [
@@ -157,14 +165,13 @@ const galleryPhotos = [
 
 const faqs = [
   ["What ages does Gifted Garden accept?", "Gifted Garden serves children from birth through age 5, including infant, toddler, and preschool stages."],
-  ["What are the hours?", "Care hours are 6:00 AM–4:30 PM. Ask about operating days, holidays, and planned closures when you inquire."],
-  ["Do you offer full-time or part-time care?", "Ask which full-time and part-time schedules currently fit your child’s age and desired start date."],
-  ["How much is tuition?", "Request current tuition and a complete fee summary so you can compare the schedule, included services, and routine fees that apply to your family."],
+  ["What are the hours?", "Gifted Garden’s published full-time first shift is Monday through Friday from 6:00 AM–4:30 PM. Twenty-four-hour and weekend care may be negotiated as needed. Scheduled closures include Martin Luther King Jr. Day, Memorial Day, Juneteenth, Independence Day, Labor Day, Veterans Day, Thanksgiving Day, the day after Thanksgiving, and December 24–January 1."],
+  ["What schedule is offered?", "The public schedule is full-time first shift, Monday through Friday from 6:00 AM–4:30 PM. Twenty-four-hour and weekend care may be negotiated as needed. Complete schedule terms are provided in the family handbook."],
+  ["How much is tuition?", "Contact Gifted Garden for current tuition information. Depending on the family agreement, additional charges may apply for late pickup, late payment, and returned payments."],
   ["Do you have openings?", "Availability changes by age and schedule. Contact Gifted Garden for the current fit; a space is not guaranteed until admission is complete."],
-  ["Are meals and snacks provided?", "Ask what meals, snacks, infant feeding supplies, and other items are provided or family-supplied. Do not send medical records through this website."],
-  ["Does my child need to be potty trained?", "Ask how Gifted Garden supports potty learning for your child’s age and stage."],
-  ["How do rest and sick-child policies work?", "Rest and quiet time are part of the sample daily rhythm. Complete illness, return-to-care, and rest policies are reviewed directly with families."],
-  ["Is Gifted Garden licensed?", "Gifted Garden is a family home child-care program with a reported capacity of 6. The legal license details will be added after owner verification."],
+  ["Do you offer before- and after-school care or transportation?", "Pickup and drop-off transportation may be negotiated for schools within a five-mile radius of Gifted Garden’s location. Availability depends on the school, timing, and family agreement and must be confirmed before enrollment."],
+  ["Where can I review program policies?", "Detailed meal, rest, illness, release, payment, transportation, and other operating policies are provided in Gifted Garden’s physical family handbook and reviewed with enrolled parents."],
+  ["Is Gifted Garden licensed?", "Yes. The licensed facility name is Dionne Panton Family Child Care, classified as a Small Family Child Care Home, California license number 376628431, with a licensed capacity of six. The owner confirms that the license is active and in good standing; families can also consult the linked California CDSS Facility Search."],
   ["Do you accept military fee assistance?", "Gifted Garden reports active military fee-assistance status. The administering organization determines family eligibility, authorization, funding, and benefit amounts."],
   ["How do tours work?", "Submit a request with a preferred time. Gifted Garden will review it before confirming a visit and sharing arrival details. A request or tour does not reserve a space."],
 ];
@@ -181,20 +188,10 @@ function LavenderMark({ small = false }: { small?: boolean }) {
   );
 }
 
-function DemoNotice() {
-  return (
-    <div className="prototype-notice" role="note">
-      <strong>Enrollment preview</strong>
-      <span>Inquiries are welcome while final license details, policies, and public-release information are confirmed.</span>
-    </div>
-  );
-}
-
 export default function Home() {
   return (
     <>
       <a className="skip-link" href="#main">Skip to main content</a>
-      <DemoNotice />
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Gifted Garden home">
           <Image
@@ -213,6 +210,7 @@ export default function Home() {
           <a href="#safety">Safety</a>
           <a href="#faq">FAQ</a>
           <a href="#tour">Tour</a>
+          <a href="#waitlist">Waitlist</a>
         </nav>
         <div className="header-actions">
           <a className="header-phone" href="tel:+16196461029" aria-label="Call Gifted Garden at 619-646-1029">Call (619) 646-1029</a>
@@ -227,6 +225,7 @@ export default function Home() {
         <a href="#safety">Safety</a>
         <a href="#faq">FAQ</a>
         <a href="#tour">Tour</a>
+        <a href="#waitlist">Waitlist</a>
       </nav>
 
       <main id="main">
@@ -244,9 +243,9 @@ export default function Home() {
             <p className="hero-lede">Family home child care for children from birth through age 5, led by Dionne Panton, M.S. in Early Childhood Education. A small group makes room for care that stays personal.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#tour">Request a Tour</a>
-              <a className="button button-secondary" href="tel:+16196461029">Call (619) 646-1029</a>
+              <a className="button button-secondary" href="#waitlist">Join the Waitlist</a>
             </div>
-            <p className="location-note">Open 6:00 AM–4:30 PM · Complete address shared after a tour is confirmed.</p>
+            <p className="location-note">Full-time first shift: Monday–Friday · 6:00 AM–4:30 PM · Complete address shared after a tour is confirmed.</p>
           </div>
           <aside className="hero-card" aria-label="Gifted Garden program highlights">
             <div className="mascot-stage">
@@ -262,7 +261,8 @@ export default function Home() {
             <span className="eyebrow">At a glance</span>
             <h2>Personal care, grounded in early-childhood expertise.</h2>
             <ul>
-              <li><span>Small group</span><strong>Reported capacity: 6</strong></li>
+              <li><span>Small group</span><strong>Licensed capacity: 6</strong></li>
+              <li><span>California license</span><strong>{licensing.licenseNumber}</strong></li>
               <li><span>Provider</span><strong>M.S. Early Childhood Education</strong></li>
               <li><span>Experience</span><strong>7 years</strong></li>
               <li><span>Availability</span><strong>{availability.short}</strong></li>
@@ -271,8 +271,8 @@ export default function Home() {
         </section>
 
         <section className="trust-strip" aria-label="Key program information">
-          <div><span>Program type</span><strong>Family home child care</strong></div>
-          <div><span>Ages & hours</span><strong>Birth–5 · 6:00 AM–4:30 PM</strong></div>
+          <div><span>Program type</span><strong>{licensing.classification}</strong></div>
+          <div><span>Ages & first shift</span><strong>Birth–5 · Mon–Fri · 6:00 AM–4:30 PM</strong></div>
           <div><span>Current availability</span><strong>{availability.short}</strong></div>
           <div><span>Owner-reported support</span><strong>Military fee-assistance status: active</strong></div>
         </section>
@@ -298,7 +298,7 @@ export default function Home() {
           <div className="section-heading centered">
             <span className="eyebrow">Program fit</span>
             <h2 id="fit-title">Find the care path that fits your child.</h2>
-            <p>Gifted Garden serves children from birth through age 5 in a small family home child-care setting with an owner-reported capacity of 6.</p>
+            <p>Gifted Garden serves children from birth through age 5 in a Small Family Child Care Home with a licensed capacity of 6.</p>
           </div>
           <div className="card-grid">
             {programCards.map((card, index) => (
@@ -380,14 +380,30 @@ export default function Home() {
           <div className="section-heading centered light-heading">
             <span className="eyebrow">Trust & safety</span>
             <h2 id="safety-title">Clear routines. Thoughtful care. Honest expectations.</h2>
-            <p>Complete health, safety, emergency, and release policies are reviewed during enrollment. No child-care setting can promise that illness, injury, or emergencies will never occur.</p>
+              <p>Detailed operating policies are maintained in Gifted Garden’s physical family handbook and shared with enrolled parents. No child-care setting can promise that illness, injury, or emergencies will never occur.</p>
           </div>
           <div className="safety-grid">
             {safetyItems.map(([title, copy]) => (
               <article key={title}><span aria-hidden="true">✓</span><h3>{title}</h3><p>{copy}</p></article>
             ))}
           </div>
-          <p className="safety-footnote">Detailed policies are reviewed directly with families and will never expose access-control details, attendance patterns, or children’s schedules.</p>
+          <div className="license-card">
+            <div>
+              <span className="eyebrow">California child-care license</span>
+              <h3>{licensing.legalName}</h3>
+              <dl>
+                <div><dt>Classification</dt><dd>{licensing.classification}</dd></div>
+                <div><dt>License number</dt><dd>{licensing.licenseNumber}</dd></div>
+                <div><dt>Licensed capacity</dt><dd>{licensing.capacity}</dd></div>
+                <div><dt>Owner-confirmed status</dt><dd>Active and in good standing</dd></div>
+              </dl>
+              <p>The owner reports that no resident children currently count toward the licensed capacity. Families should review current licensing information and visit the program before enrolling.</p>
+            </div>
+            <a className="button button-secondary" href={licensing.facilitySearchUrl} target="_blank" rel="noopener noreferrer">
+              Search California CDSS records <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <p className="safety-footnote">The complete handbook is intentionally not published on this marketing website. Enrolled families receive and review the applicable policies directly.</p>
         </section>
 
         <section className="section details-section" id="tuition" aria-labelledby="details-title">
@@ -396,13 +412,13 @@ export default function Home() {
             <h2 id="details-title">The facts families need to make a real decision.</h2>
           </div>
           <div className="details-grid">
-            <article><span>01</span><h3>Hours & schedules</h3><p>Care hours are 6:00 AM–4:30 PM. Ask which operating days and full- or part-time schedules fit your child’s age and desired start date.</p></article>
-            <article><span>02</span><h3>Tuition & fees</h3><p>Request current tuition and a complete fee summary, including what is provided and which routine fees apply.</p></article>
-            <article><span>03</span><h3>Availability</h3><p>{availability.detail} Placement remains subject to program fit and completed admission.</p></article>
+            <article><span>01</span><h3>Full-time first shift</h3><p>Monday–Friday, 6:00 AM–4:30 PM. Twenty-four-hour and weekend care may be negotiated as needed. Complete schedule terms are provided in the family handbook.</p></article>
+            <article><span>02</span><h3>Tuition & fees</h3><p>Contact Gifted Garden for current tuition information. Additional charges may apply for late pickup, late payment, and returned payments.</p></article>
+            <article><span>03</span><h3>School transportation</h3><p>Pickup and drop-off may be negotiated for schools within a five-mile radius of Gifted Garden’s location. Service depends on the school, timing, and family agreement.</p></article>
           </div>
           <div className="decision-row">
             <div><strong>Need care soon?</strong><span>Request a tour and availability conversation.</span><a href="#tour">Request a Tour</a></div>
-            <div><strong>Planning ahead?</strong><span>Ask about a future start date without sharing sensitive records.</span><a href="#contact">Ask About Future Care</a></div>
+            <div><strong>Planning ahead?</strong><span>Share a future start date without sending sensitive records.</span><a href="#waitlist">Join the Waitlist</a></div>
             <div><strong>Still deciding?</strong><span>Ask a short, non-sensitive question first.</span><a href="#contact">Ask a Question</a></div>
           </div>
         </section>
@@ -423,7 +439,7 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <p className="guide-reviewed">Family guide last reviewed July 22, 2026. Ask for the current handbook before enrollment.</p>
+          <p className="guide-reviewed">Family guide last reviewed July 23, 2026. Ask for the current handbook before enrollment.</p>
         </section>
 
         <section className="assistance-section" id="families" aria-labelledby="assistance-title">
@@ -450,7 +466,7 @@ export default function Home() {
           </div>
           <ol className="steps-list">
             <li><span>1</span><h3>Check the basics</h3><p>Review ages, hours, tuition, availability, and location.</p></li>
-            <li><span>2</span><h3>Share your timing</h3><p>Request a tour for near-term care or ask about a future start.</p></li>
+            <li><span>2</span><h3>Share your timing</h3><p>Request a tour for near-term care or join the waitlist for a future start.</p></li>
             <li><span>3</span><h3>Visit and ask</h3><p>Meet the provider and review routines and policies.</p></li>
             <li><span>4</span><h3>Enroll securely</h3><p>Provide sensitive records later through an approved system.</p></li>
           </ol>
@@ -470,6 +486,20 @@ export default function Home() {
             </ul>
           </div>
           <EnrollmentForm kind="tour" />
+        </section>
+
+        <section className="form-section alternate" id="waitlist" aria-labelledby="waitlist-section-title">
+          <div className="form-section-copy">
+            <span className="eyebrow">Planning for future care</span>
+            <h2 id="waitlist-section-title">Join the Gifted Garden waitlist.</h2>
+            <p>Share your preferred start month and care needs. Gifted Garden will review the request and follow up about availability and next steps.</p>
+            <ul>
+              <li>A waitlist request does not reserve or guarantee a space.</li>
+              <li>Placement depends on availability, age, schedule, and program fit.</li>
+              <li>Do not send medical, custody, financial, or benefit records.</li>
+            </ul>
+          </div>
+          <EnrollmentForm kind="waitlist" />
         </section>
 
         <section className="section faq-section" id="faq" aria-labelledby="faq-title">
@@ -500,7 +530,7 @@ export default function Home() {
             <span className="eyebrow">Location</span>
             <h2 id="location-title">Child care in Lomita Village, San Diego.</h2>
             <p>Gifted Garden serves families in Lomita Village and the surrounding San Diego area. To protect the privacy and safety of this family home child-care program, the complete address and arrival instructions are shared only after a tour request is reviewed and the appointment is confirmed.</p>
-            <p className="inline-note"><strong>Directions link:</strong> A privacy-safe, verified destination must be approved before publication.</p>
+            <p className="inline-note"><strong>Transportation area:</strong> Pickup and drop-off may be negotiated for schools within five miles of the program’s location.</p>
           </div>
         </section>
 
@@ -545,13 +575,13 @@ export default function Home() {
         <div className="footer-links">
           <a href="#program">Program</a><a href="#safety">Safety</a><a href="#tuition">Tuition</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a>
         </div>
-        <p>Enrollment preview · Last reviewed July 23, 2026</p>
+        <p>Where every child blooms · Last reviewed July 23, 2026</p>
       </footer>
 
       <nav className="mobile-actions" aria-label="Mobile enrollment actions">
         <a href="#tour">Tour</a>
         <a href="tel:+16196461029">Call</a>
-        <a href="#tuition">Cost</a>
+        <a href="#waitlist">Waitlist</a>
       </nav>
 
     </>

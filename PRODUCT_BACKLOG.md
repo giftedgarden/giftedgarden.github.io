@@ -1,20 +1,27 @@
 # Gifted Garden product backlog
 
-Updated July 22, 2026 after a cross-functional Sparkle Shield Bros review.
+Updated July 23, 2026 after a cross-functional Sparkle Shield Bros review and owner fact-check.
 
-## Implementation update — July 22, 2026
+## Implementation update — July 23, 2026
 
 Implemented without requiring new owner facts:
 
 - Removed unverified assistance-program claims; retained only the reported active military fee-assistance pathway with careful eligibility language.
-- Removed before/after-school schedule choices and public claims until ages, transportation, boundaries, and pricing are verified.
-- Removed the waitlist form and CTA until governance and retention rules are approved.
+- Added the owner-confirmed licensed facility name, classification, California license number, licensed capacity, and active/good-standing statement.
+- Added a direct link to the official California CDSS Facility Search while preserving the private-address policy.
+- Published the Monday–Friday hours, closure calendar, tuition contact approach, and identified late/returned-payment fees.
+- Published carefully qualified transportation information for negotiable school pickup and drop-off within five miles.
+- Replaced the part-time language with the approved full-time first shift: Monday–Friday, 6:00 AM–4:30 PM.
+- Added owner-approved language for negotiable 24-hour/weekend care and school pickup/drop-off within five miles.
+- Restored a minimal waitlist request path as one of the website’s two primary conversion goals.
+- Recorded the owner’s approval to publish all currently selected photographs and the decision to keep detailed policies in physical family handbooks.
+- Kept the waitlist request minimal: a prepared email, no sensitive records, and clear no-guarantee wording.
 - Added direct mobile navigation to Program, Cost, Provider, Safety, FAQ, and Tour.
 - Added referral-source choices to inquiry emails and a privacy-conscious page-sharing tool.
 - Added an automatically aging availability message, clearer age/schedule qualification language, and a visible review date.
 - Strengthened the practical family guide, privacy summary, address-protection language, and accessible form status messaging.
 
-Still blocked by owner answers or external account setup: GG-101, GG-103, GG-104, GG-105, GG-106, GG-108, GG-109, GG-111, GG-113, parts of GG-114, Google Business Profile/QR work in GG-116, hosted analytics in GG-118, account monitoring in GG-119, and language research in GG-120.
+Still blocked or only partially complete: remaining parts of GG-101, GG-103, GG-104, GG-105, GG-106, GG-108, GG-109, GG-111, GG-113, parts of GG-114, Google Business Profile/QR work in GG-116, hosted analytics in GG-118, account monitoring in GG-119, and language research in GG-120.
 
 ## Product objective
 
@@ -64,7 +71,7 @@ A story is done only when its owner-provided facts are verified, its acceptance 
 
 **Acceptance criteria:**
 
-- The owner approves the legal business name/DBA, license type and number, licensed capacity, accepted ages, operating days, hours, full- and part-time schedules, before/after-school eligibility, transportation, meals, supplies, tuition, deposits, routine fees, closures, and current openings.
+- The owner approves the legal business name/DBA, license type and number, licensed capacity, accepted ages, operating days, hours, published full-time schedule, negotiated-care language, transportation boundary, tuition approach, routine fees, closures, and current openings.
 - Openings include any age or schedule qualifications and a visible last-reviewed date.
 - The same facts appear consistently in the hero, practical details, FAQ, forms, metadata, and business profiles.
 - Public pages contain no “pending,” “to be confirmed,” “draft,” or conflicting claims.
@@ -145,11 +152,12 @@ A story is done only when its owner-provided facts are verified, its acceptance 
 
 **Acceptance criteria:**
 
-- The owner approves the fee/no-fee decision, lawful priority factors, update cadence, expiration, withdrawal, deletion, and no-guarantee wording.
-- A named owner can retrieve, update, and remove waitlist records consistently.
-- If those rules are not ready, the waitlist CTA and form are removed until they are.
+- The public request collects only basic contact, child age, desired start month, and schedule interest.
+- The page states that a waitlist request does not reserve or guarantee a space.
+- The request is prepared in the parent’s email app and is not sent until the parent presses Send.
+- A named owner can follow up, retrieve, update, and remove waitlist requests consistently.
 
-**Dependencies:** Written waitlist policy and record owner.
+**Dependencies:** Internal waitlist follow-up and email-retention practice.
 
 ### GG-108 — Complete the public-release switch
 
@@ -174,7 +182,7 @@ A story is done only when its owner-provided facts are verified, its acceptance 
 
 **Acceptance criteria:**
 
-- Full-time and part-time definitions, operating days, tuition or a truthful starting range, deposits, routine fees, and included services are published.
+- The full-time first-shift schedule, negotiable 24-hour/weekend-care language, operating days, tuition contact approach, routine fees, and included services are published.
 - Five representative parents can find cost and schedule information within 30 seconds.
 
 ### GG-110 — Clarify each age path
@@ -303,17 +311,13 @@ GG-108 through GG-114, starting with price/schedule clarity and reliable local d
 
 GG-115 through GG-120.
 
-## Product Owner questions blocking Sprint 1
+## Remaining Product Owner questions blocking public release
 
-1. What is the exact licensed business name, license type, and license number?
-2. What days are open, and what are the holiday and closure dates?
-3. What are the full-time and part-time schedules, tuition, deposits, late fees, and included services?
-4. Which ages qualify for before/after-school care, and is transportation provided?
-5. What meals, snacks, infant supplies, and other items are provided or family-supplied?
-6. What are the potty-learning, rest, illness, medication, water-play, outing, and authorized-release policies?
-7. Which provider credentials and safety qualifications can be documented publicly?
-8. Can each of the six named assistance programs be verified individually?
-9. What response-time promise, calling hours, texting rules, and tour workflow can the owner sustain?
-10. Are signed public-use releases available for every identifiable child and adult in the photographs?
-11. What are the waitlist rules and record-retention period?
-12. Will the owner approve a secure hosted form, or keep mailto as the primary workflow?
+Resolved July 23: licensed facility name, classification, license number, capacity, resident-child count, owner-confirmed license status, operating days and hours, closure calendar, full-time first shift, negotiable 24-hour/weekend care, tuition contact approach, three payment-fee types, five-mile transportation boundary, handbook-only policy approach, and permission to publish the selected photographs.
+
+1. Are there registration, deposit, supply, field-trip, annual, or other fees in addition to late pickup, late payment, and returned-payment charges?
+2. Which provider credentials and safety qualifications can be documented publicly?
+3. Can each named assistance program be verified individually?
+4. What response-time promise, calling hours, texting rules, and tour workflow can the owner sustain?
+5. What internal waitlist follow-up and record-retention practice will the owner use?
+6. Will the owner approve a secure hosted form later, or keep mailto as the primary workflow?

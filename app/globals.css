@@ -360,6 +360,28 @@ section[id], main[id] { scroll-margin-top: calc(var(--header-height) + 32px); }
 .safety-grid h3 { margin: 26px 0 8px; font-family: "Fredoka", "Arial Rounded MT Bold", sans-serif; font-size: 1.45rem; }
 .safety-grid p, .safety-footnote { color: #c8dbd4; }
 .safety-footnote { max-width: 720px; margin: 35px auto 0; text-align: center; font-size: 0.85rem; }
+.license-card {
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 38px;
+  margin: 44px auto 0;
+  padding: clamp(28px, 4vw, 46px);
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 55px rgba(17, 32, 27, 0.2);
+}
+.license-card .eyebrow { color: var(--forest); }
+.license-card h3 { margin: 8px 0 22px; font-family: "Fredoka", "Arial Rounded MT Bold", sans-serif; font-size: clamp(1.8rem, 3vw, 2.7rem); }
+.license-card dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; }
+.license-card dl div { padding: 13px 15px; background: var(--mint); border-radius: 12px; }
+.license-card dt { color: var(--ink-soft); font-size: 0.73rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; }
+.license-card dd { margin: 3px 0 0; color: var(--ink); font-weight: 900; }
+.license-card p { max-width: 760px; margin: 20px 0 0; color: var(--ink-soft); font-size: 0.88rem; }
+.license-card .button { white-space: nowrap; }
 
 .details-section { background: var(--paper); }
 .details-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 55px; background: var(--line); border: 1px solid var(--line); }
@@ -494,6 +516,8 @@ input:focus, select:focus, textarea:focus { border-color: var(--forest); outline
   .mobile-section-nav a { min-height: 40px; display: inline-flex; align-items: center; flex: 0 0 auto; padding: 7px 13px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-soft); font-size: 0.78rem; font-weight: 800; text-decoration: none; }
   .header-actions { margin-left: auto; }
   .hero, .provider-section, .form-section, .contact-section { grid-template-columns: 1fr; }
+  .license-card { grid-template-columns: 1fr; align-items: start; }
+  .license-card .button { width: fit-content; }
   .hero { min-height: auto; }
   .hero-card { max-width: 680px; }
   .trust-strip, .safety-grid { grid-template-columns: repeat(2, 1fr); }
@@ -529,6 +553,8 @@ input:focus, select:focus, textarea:focus { border-color: var(--forest); outline
   .intro, .day-section, .military-section, .location-section { grid-template-columns: 1fr; }
   .day-intro { position: static; }
   .card-grid, .safety-grid, .steps-list, .form-grid, .reason-grid, .planning-grid, .assistance-grid { grid-template-columns: 1fr; }
+  .license-card dl { grid-template-columns: 1fr; }
+  .license-card .button { width: 100%; white-space: normal; text-align: center; }
   .assistance-grid article { min-height: auto; }
   .reason-grid h3 { margin-top: 24px; }
   .program-card { min-height: auto; }

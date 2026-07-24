@@ -2,19 +2,21 @@
 
 ## Product Owner verification gate
 
-- [ ] Legal program type and licensing facts are verified.
-- [ ] Ages, schedules, hours, tuition, fees, and availability are current.
+- [x] Owner supplied the licensed facility name, classification, license number, capacity, and active/good-standing status.
+- [x] Owner supplied operating days, hours, closure calendar, full-time first-shift schedule, negotiated-care language, tuition contact approach, and identified payment fees.
+- [x] Public full-time first-shift schedule and negotiable 24-hour/weekend care language are owner-approved.
+- [x] Transportation is described as negotiable pickup/drop-off for schools within five miles.
 - [ ] Provider bio, credentials, safety summaries, meals, allergies, illness, and daily routines are accurate.
 - [ ] Military fee-assistance language matches documented participation.
 - [ ] Phone, text, email, directions, profiles, and response-time claims work.
-- [ ] Authentic photos and testimonials have written permission.
+- [x] Owner confirms all photographs currently selected for the website are approved for public publication.
 
 ## Enrollment and privacy gate
 
 - [x] Owner-review forms use a transparent mailto workflow with no external form processor.
 - [ ] Decide whether the email-based workflow is sufficient for public launch or approve a secure form/scheduling vendor.
 - [ ] Tour and inquiry workflows succeed end to end and have accessible failure fallbacks.
-- [x] Waitlist form and claims are hidden until the owner approves its rules and retention period.
+- [x] A minimal waitlist email-preparation path is available and clearly states that placement is not guaranteed.
 - [ ] Required operational consent and optional marketing consent are recorded separately.
 - [ ] Processor, recipients, retention, deletion, export, privacy contact, and incident process are documented.
 - [ ] No medical, custody, financial, identity, immunization, or benefit records are collected here.
@@ -25,7 +27,7 @@
 - [ ] Keyboard, VoiceOver/Safari, TalkBack/Chrome, 200% zoom, 320px reflow, forced colors, and reduced motion are tested.
 - [ ] Form validation identifies each field and preserves valid input.
 - [ ] Images are authentic, compressed, correctly sized, and stripped of location metadata.
-- [ ] Title, description, canonical URL, Open Graph data, sitemap, robots rules, and JSON-LD match verified public facts.
+- [x] Title, description, social metadata, and robots rules match the verified public facts.
 - [ ] Core contact facts match the Google Business Profile, Yelp, and official social accounts.
 - [ ] Funnel events contain fixed labels only and never contain family information.
 - [ ] Three representative parents, including a military-connected parent, can find hours, ages, tuition, location, safety, and Tour without assistance.
