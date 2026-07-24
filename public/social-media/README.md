@@ -3,6 +3,33 @@
 Ready-to-upload social assets matching the Gifted Garden website and its current
 brand system.
 
+## Professional V2 Collection — Owner Approved
+
+The owner-review redesign is in `review-v2/`. It preserves the original assets
+and introduces a cleaner 1080 × 1350 editorial system built with real
+photography, restrained vector accents, consistent grids, and accessible
+typography.
+
+- `review-v2/00-review-contact-sheet.png` — overview of all five redesigns.
+- `review-v2/01-brand-introduction.png`
+- `review-v2/02-request-a-tour.png`
+- `review-v2/03-program-overview.png`
+- `review-v2/04-meet-dionne-panton.png`
+- `review-v2/05-review-request.png`
+
+Editable SVG masters and the owner decision record are stored in
+`design/social-media-review-v2/`. Regenerate the collection with
+`node scripts/build-social-review-v2.mjs`.
+
+The owner approved the V2 editorial direction, deeper purple and green palette,
+and use of supplied child photography with written permission. “Known” language
+was removed from the provider graphic.
+
+The review-request graphic points to both confirmed public profiles:
+
+- Google: `https://share.google/S2uAsv1C6g9qcipQH`
+- Yelp: `https://www.yelp.com/biz/gifted-garden-san-diego`
+
 ## Publishing Status
 
 - **Ready after owner approval:** profile image, platform covers, Request a Tour,
@@ -10,11 +37,10 @@ brand system.
 - **Hold until the fact is reconfirmed:** `posts/enrollment-openings.png`. The
   “Now Enrolling” message is time-sensitive; verify current age and schedule fit
   on the day it is posted.
-- **Hold until written image and wording approval is confirmed:**
-  `posts/meet-dionne-panton.png` and any social post using identifiable provider
-  or child photography.
-- **Ready after a verified review destination exists:**
-  `posts/review-request.png`.
+- **Approved photography:** The owner confirms written permission for all
+  supplied child photographs used for public marketing.
+- **Confirmed review destinations:** Google and Yelp profile links are recorded
+  above.
 
 ## Profile
 

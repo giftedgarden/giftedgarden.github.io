@@ -25,7 +25,7 @@ const programCards = [
 const reasons = [
   {
     title: "A genuinely small group",
-    copy: "With a licensed capacity of six children, the setting is intentionally personal and gives each child room to be known.",
+    copy: "With a licensed capacity of six children, the setting is intentionally personal and gives each child more room for individual attention.",
   },
   {
     title: "An educated, experienced provider",

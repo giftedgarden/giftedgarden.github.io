@@ -79,6 +79,7 @@ test("renders the public Gifted Garden enrollment website", async () => {
   assert.match(html, /Ratings and review text are intentionally not copied here/);
   assert.match(html, /Take the next step toward care that stays personal/);
   assert.match(html, /Meet Dionne and see the learning and play environment/);
+  assert.doesNotMatch(html, /room to be known|every (?:child|kid) is known/i);
   assert.doesNotMatch(html, /Enrollment preview/);
   assert.doesNotMatch(html, /Private owner-review version/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/);
