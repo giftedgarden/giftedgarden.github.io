@@ -16,6 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "Gifted Garden Child Care | Lomita Village, San Diego",
     description:
       "Licensed Small Family Child Care Home for children from birth through age 5 in Lomita Village, San Diego. Open Monday–Friday, 6:00 AM–4:30 PM.",
+    alternates: { canonical: "/" },
     robots: { index: true, follow: true },
     icons: {
       icon: "/brand/gifted-garden-elephant.png",
@@ -25,13 +26,15 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       title: "Gifted Garden Child Care | Lomita Village, San Diego",
       description: "Gifted Garden: Where every child blooms. Licensed Small Family Child Care Home serving birth through age 5 in Lomita Village, San Diego.",
-      images: [{ url: "/og-brand.webp", width: 1200, height: 630, alt: "Gifted Garden Childcare Service — Where Every Child Blooms. Lomita Village, San Diego." }],
+      url: "/",
+      siteName: "Gifted Garden",
+      images: [{ url: "/og.png", width: 1200, height: 630, alt: "Gifted Garden Childcare Service — Where Every Child Blooms. Lomita Village, San Diego." }],
     },
     twitter: {
       card: "summary_large_image",
       title: "Gifted Garden Child Care | Lomita Village, San Diego",
       description: "Gifted Garden: Where every child blooms. Licensed Small Family Child Care Home serving birth through age 5 in Lomita Village, San Diego.",
-      images: ["/og-brand.webp"],
+      images: ["/og.png"],
     },
   };
 }

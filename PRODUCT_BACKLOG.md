@@ -6,6 +6,10 @@ Updated July 23, 2026 after a cross-functional Sparkle Shield Bros review and ow
 
 Implemented without requiring new owner facts:
 
+- Applied the strongest conversion patterns from the competitor review: an authentic-photo hero, concise program fit, repeated tour and waitlist actions, a clear tour-expectations checklist, and a strong final call to action.
+- Added direct Google, Yelp, Instagram, and Facebook profile links without copying ratings, inventing testimonials, or making unsupported “top-rated” claims.
+- Added a canonical URL, public sitemap, robots rules, and privacy-preserving ChildCare structured data for local search discovery.
+- Kept the site focused on the two approved goals instead of adding thin neighborhood pages, dozens of generic articles, or a virtual tour without approved footage.
 - Removed unverified assistance-program claims; retained only the reported active military fee-assistance pathway with careful eligibility language.
 - Added the owner-confirmed licensed facility name, classification, California license number, licensed capacity, and active/good-standing statement.
 - Added a direct link to the official California CDSS Facility Search while preserving the private-address policy.

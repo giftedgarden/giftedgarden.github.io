@@ -97,6 +97,13 @@ const licensing = {
   facilitySearchUrl: "https://cdss.ca.gov/inforesources/community-care-licensing/facility-search-welcome",
 };
 
+const profileLinks = {
+  google: "https://share.google/S2uAsv1C6g9qcipQH",
+  yelp: "https://www.yelp.com/biz/gifted-garden-san-diego",
+  instagram: "https://www.instagram.com/gifted_garden",
+  facebook: "https://www.facebook.com/GiftedGardenChildCare",
+};
+
 const galleryPhotos = [
   {
     src: "/images/friendships.jpg",
@@ -189,9 +196,61 @@ function LavenderMark({ small = false }: { small?: boolean }) {
 }
 
 export default function Home() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ChildCare",
+    name: "Gifted Garden",
+    legalName: licensing.legalName,
+    url: "https://giftedgarden.github.io/",
+    telephone: "+1-619-646-1029",
+    email: "giftedgarden1@gmail.com",
+    slogan: "Where every child blooms.",
+    description: "Licensed Small Family Child Care Home serving children from birth through age 5 in Lomita Village, San Diego.",
+    image: [
+      "https://giftedgarden.github.io/images/friendships.jpg",
+      "https://giftedgarden.github.io/images/dionne-panton.jpg",
+    ],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "San Diego",
+      addressRegion: "CA",
+      postalCode: "92114",
+      addressCountry: "US",
+    },
+    areaServed: {
+      "@type": "Place",
+      name: "Lomita Village and surrounding San Diego communities",
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "06:00",
+        closes: "16:30",
+      },
+    ],
+    priceRange: "Contact for current tuition",
+    sameAs: Object.values(profileLinks),
+    identifier: {
+      "@type": "PropertyValue",
+      propertyID: "California child-care license",
+      value: licensing.licenseNumber,
+    },
+    founder: {
+      "@type": "Person",
+      name: "Dionne Panton",
+      jobTitle: "Child-care provider",
+      description: "M.S. in Early Childhood Education with seven years of professional child-care experience.",
+    },
+  };
+
   return (
     <>
       <a className="skip-link" href="#main">Skip to main content</a>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
+      />
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Gifted Garden home">
           <Image
@@ -207,10 +266,9 @@ export default function Home() {
           <a href="#program">Program</a>
           <a href="#tuition">Cost</a>
           <a href="#provider">Provider</a>
-          <a href="#safety">Safety</a>
+          <a href="#reviews">Reviews</a>
           <a href="#faq">FAQ</a>
           <a href="#tour">Tour</a>
-          <a href="#waitlist">Waitlist</a>
         </nav>
         <div className="header-actions">
           <a className="header-phone" href="tel:+16196461029" aria-label="Call Gifted Garden at 619-646-1029">Call (619) 646-1029</a>
@@ -222,7 +280,7 @@ export default function Home() {
         <a href="#program">Program</a>
         <a href="#tuition">Cost</a>
         <a href="#provider">Provider</a>
-        <a href="#safety">Safety</a>
+        <a href="#reviews">Reviews</a>
         <a href="#faq">FAQ</a>
         <a href="#tour">Tour</a>
         <a href="#waitlist">Waitlist</a>
@@ -248,15 +306,25 @@ export default function Home() {
             <p className="location-note">Full-time first shift: Monday–Friday · 6:00 AM–4:30 PM · Complete address shared after a tour is confirmed.</p>
           </div>
           <aside className="hero-card" aria-label="Gifted Garden program highlights">
-            <div className="mascot-stage">
+            <div className="hero-photo">
               <Image
-                src="/brand/gifted-garden-elephant.webp"
-                alt=""
-                width={1254}
-                height={1254}
+                src="/images/friendships.jpg"
+                alt="Three children smiling and sharing a group hug at Gifted Garden"
+                fill
                 unoptimized
+                priority
+                sizes="(max-width: 1050px) 80vw, 34vw"
               />
-              <span className="brand-sparkle" aria-hidden="true">✦</span>
+              <span className="hero-mascot-badge" aria-hidden="true">
+                <Image
+                  src="/brand/gifted-garden-elephant.webp"
+                  alt=""
+                  width={1254}
+                  height={1254}
+                  unoptimized
+                />
+                <i>✦</i>
+              </span>
             </div>
             <span className="eyebrow">At a glance</span>
             <h2>Personal care, grounded in early-childhood expertise.</h2>
@@ -376,6 +444,24 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="section review-section" id="reviews" aria-labelledby="reviews-title">
+          <div className="section-heading centered">
+            <span className="eyebrow">Independent profiles</span>
+            <h2 id="reviews-title">See Gifted Garden where families already look.</h2>
+            <p>Visit Gifted Garden’s public business and social profiles for another view of the program. Ratings and review text are intentionally not copied here, so families can read the current source directly.</p>
+          </div>
+          <div className="profile-links" aria-label="Gifted Garden public profiles">
+            <a href={profileLinks.google} target="_blank" rel="noopener noreferrer"><span>Business profile</span><strong>Google</strong><small>View the current listing ↗</small></a>
+            <a href={profileLinks.yelp} target="_blank" rel="noopener noreferrer"><span>Business profile</span><strong>Yelp</strong><small>View the current listing ↗</small></a>
+            <a href={profileLinks.instagram} target="_blank" rel="noopener noreferrer"><span>Program updates</span><strong>Instagram</strong><small>@gifted_garden ↗</small></a>
+            <a href={profileLinks.facebook} target="_blank" rel="noopener noreferrer"><span>Program updates</span><strong>Facebook</strong><small>Gifted Garden Child Care ↗</small></a>
+          </div>
+          <div className="review-next-step">
+            <div><span className="eyebrow">The most useful next step</span><h3>Meet Dionne and see the care environment yourself.</h3></div>
+            <a className="button button-primary" href="#tour">Request a Tour</a>
+          </div>
+        </section>
+
         <section className="section safety-section" id="safety" aria-labelledby="safety-title">
           <div className="section-heading centered light-heading">
             <span className="eyebrow">Trust & safety</span>
@@ -479,9 +565,10 @@ export default function Home() {
             <h2 id="tour-section-title">Come see whether Gifted Garden feels right.</h2>
             <p>Complete the form to prepare a structured email to Gifted Garden. The complete address remains private until a tour is reviewed and confirmed.</p>
             <ul>
-              <li>Requests are reviewed before confirmation.</li>
-              <li>A requested time is not booked until confirmed.</li>
-              <li>Exact arrival details may be withheld until review.</li>
+              <li>Meet Dionne and see the learning and play environment.</li>
+              <li>Discuss your child’s age, schedule, transportation needs, and current availability.</li>
+              <li>Ask about tuition and the family handbook before making a decision.</li>
+              <li>A requested time is not booked until Gifted Garden confirms it.</li>
               <li>A tour does not reserve an enrollment space.</li>
             </ul>
           </div>
@@ -516,6 +603,19 @@ export default function Home() {
             ))}
           </div>
           <a className="button button-secondary" href="#contact">Still have a question?</a>
+        </section>
+
+        <section className="closing-cta" aria-labelledby="closing-cta-title">
+          <div>
+            <span className="eyebrow">Ready when your family is</span>
+            <h2 id="closing-cta-title">Take the next step toward care that stays personal.</h2>
+            <p>Tour for near-term care, join the waitlist for a future start, or call with one quick question.</p>
+          </div>
+          <div className="closing-actions">
+            <a className="button button-primary" href="#tour">Request a Tour</a>
+            <a className="button button-secondary" href="#waitlist">Join the Waitlist</a>
+            <a className="text-call" href="tel:+16196461029">Call (619) 646-1029</a>
+          </div>
         </section>
 
         <section className="location-section" aria-labelledby="location-title">
@@ -573,7 +673,7 @@ export default function Home() {
           <span>Lomita Village · San Diego, CA 92114</span>
         </div>
         <div className="footer-links">
-          <a href="#program">Program</a><a href="#safety">Safety</a><a href="#tuition">Tuition</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a>
+          <a href="#program">Program</a><a href="#reviews">Reviews</a><a href="#safety">Safety</a><a href="#tuition">Tuition</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a>
         </div>
         <p>Where every child blooms · Last reviewed July 23, 2026</p>
       </footer>

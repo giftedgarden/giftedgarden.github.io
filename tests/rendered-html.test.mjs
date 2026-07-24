@@ -30,7 +30,8 @@ test("renders the public Gifted Garden enrollment website", async () => {
   assert.match(html, /\/brand\/gifted-garden-horizontal.webp/);
   assert.match(html, /\/brand\/gifted-garden-elephant.webp/);
   assert.doesNotMatch(html, /gifted-garden-seal/);
-  assert.match(html, /https:\/\/giftedgarden\.github\.io\/og-brand\.webp/);
+  assert.match(html, /https:\/\/giftedgarden\.github\.io\/og\.png/);
+  assert.match(html, /rel="canonical" href="https:\/\/giftedgarden\.github\.io\/"/);
   assert.match(html, /Contact for current availability/);
   assert.doesNotMatch(html, /3 spaces/);
   assert.match(html, /6:00 AM/);
@@ -50,6 +51,7 @@ test("renders the public Gifted Garden enrollment website", async () => {
   assert.match(html, /Dionne Panton, Gifted Garden child-care provider/);
   assert.match(html, /\/images\/dionne-panton.jpg/);
   assert.match(html, /src="\/images\/friendships.jpg"/);
+  assert.match(html, /Three children smiling and sharing a group hug at Gifted Garden/);
   assert.match(html, /src="\/images\/community-outing.jpg"/);
   assert.doesNotMatch(html, /\/_vinext\/image\?/);
   assert.doesNotMatch(html, /Provider photograph placeholder/);
@@ -67,9 +69,28 @@ test("renders the public Gifted Garden enrollment website", async () => {
   assert.match(html, /Adventures beyond the playroom/);
   assert.doesNotMatch(html, /Future authentic photo/);
   assert.match(html, /name="robots" content="index, follow"/i);
+  assert.match(html, /type="application\/ld\+json"/i);
+  assert.match(html, /"@type":"ChildCare"/);
+  assert.match(html, /https:\/\/share\.google\/S2uAsv1C6g9qcipQH/);
+  assert.match(html, /https:\/\/www\.yelp\.com\/biz\/gifted-garden-san-diego/);
+  assert.match(html, /https:\/\/www\.instagram\.com\/gifted_garden/);
+  assert.match(html, /https:\/\/www\.facebook\.com\/GiftedGardenChildCare/);
+  assert.match(html, /Independent profiles/);
+  assert.match(html, /Ratings and review text are intentionally not copied here/);
+  assert.match(html, /Take the next step toward care that stays personal/);
+  assert.match(html, /Meet Dionne and see the learning and play environment/);
   assert.doesNotMatch(html, /Enrollment preview/);
   assert.doesNotMatch(html, /Private owner-review version/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/);
+});
+
+test("publishes local-search discovery files", async () => {
+  const robots = await readFile(new URL("../public/robots.txt", import.meta.url), "utf8");
+  const sitemap = await readFile(new URL("../public/sitemap.xml", import.meta.url), "utf8");
+  assert.match(robots, /Allow: \//);
+  assert.match(robots, /https:\/\/giftedgarden\.github\.io\/sitemap\.xml/);
+  assert.match(sitemap, /<loc>https:\/\/giftedgarden\.github\.io\/<\/loc>/);
+  assert.match(sitemap, /<lastmod>2026-07-23<\/lastmod>/);
 });
 
 test("renders active email-preparation forms without an external form processor", async () => {
