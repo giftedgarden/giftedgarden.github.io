@@ -85,8 +85,15 @@ const planningItems = [
 ];
 
 const availability = {
-  short: "Contact for current availability",
-  detail: "Availability changes by age and schedule. Contact Gifted Garden for the current fit.",
+  short: "1 current opening",
+  detail: "The owner reports one current opening under the existing Small Family Child Care Home license. Fit depends on age, schedule, and completion of admission.",
+  reviewed: "July 23, 2026",
+};
+
+const expansion = {
+  status: "Planned expansion · CDSS approval pending",
+  title: "Interested in a future opening? Join the expansion interest list.",
+  detail: "Gifted Garden is completing an expansion project and plans to seek CDSS approval for a Large Family Child Care Home license. Additional capacity is not yet licensed or guaranteed, but families may share their interest now.",
 };
 
 const licensing = {
@@ -175,10 +182,11 @@ const faqs = [
   ["What are the hours?", "Gifted Garden’s published full-time first shift is Monday through Friday from 6:00 AM–4:30 PM. Twenty-four-hour and weekend care may be negotiated as needed. Scheduled closures include Martin Luther King Jr. Day, Memorial Day, Juneteenth, Independence Day, Labor Day, Veterans Day, Thanksgiving Day, the day after Thanksgiving, and December 24–January 1."],
   ["What schedule is offered?", "The public schedule is full-time first shift, Monday through Friday from 6:00 AM–4:30 PM. Twenty-four-hour and weekend care may be negotiated as needed. Complete schedule terms are provided in the family handbook."],
   ["How much is tuition?", "Contact Gifted Garden for current tuition information. Depending on the family agreement, additional charges may apply for late pickup, late payment, and returned payments."],
-  ["Do you have openings?", "Availability changes by age and schedule. Contact Gifted Garden for the current fit; a space is not guaranteed until admission is complete."],
+  ["Do you have openings?", "The owner reports one current opening under Gifted Garden’s existing Small Family Child Care Home license, last reviewed July 23, 2026. Fit depends on the child’s age, schedule, and completion of admission; a space is not guaranteed until admission is complete."],
+  ["What is the expansion interest list?", "Gifted Garden is completing an expansion project and plans to seek CDSS approval for a Large Family Child Care Home license. Interested parents may join the list for additional spots that could become available after the project and licensing process are complete. Joining does not guarantee approval, a completion date, added capacity, or placement."],
   ["Do you offer before- and after-school care or transportation?", "Pickup and drop-off transportation may be negotiated for schools within a five-mile radius of Gifted Garden’s location. Availability depends on the school, timing, and family agreement and must be confirmed before enrollment."],
   ["Where can I review program policies?", "Detailed meal, rest, illness, release, payment, transportation, and other operating policies are provided in Gifted Garden’s physical family handbook and reviewed with enrolled parents."],
-  ["Is Gifted Garden licensed?", "Yes. The licensed facility name is Dionne Panton Family Child Care, classified as a Small Family Child Care Home, California license number 376628431, with a licensed capacity of six. The owner confirms that the license is active and in good standing; families can also consult the linked California CDSS Facility Search."],
+  ["Is Gifted Garden licensed?", "Yes. The currently licensed facility name is Dionne Panton Family Child Care, classified as a Small Family Child Care Home, California license number 376628431, with a licensed capacity of six. The owner confirms that the current license is active and in good standing. The planned Large Family Child Care Home expansion is not yet licensed or approved; families can consult the linked California CDSS Facility Search."],
   ["Do you accept military fee assistance?", "Gifted Garden reports active military fee-assistance status. The administering organization determines family eligibility, authorization, funding, and benefit amounts."],
   ["How do tours work?", "Submit a request with a preferred time. Gifted Garden will review it before confirming a visit and sharing arrival details. A request or tour does not reserve a space."],
 ];
@@ -341,8 +349,21 @@ export default function Home() {
         <section className="trust-strip" aria-label="Key program information">
           <div><span>Program type</span><strong>{licensing.classification}</strong></div>
           <div><span>Ages & first shift</span><strong>Birth–5 · Mon–Fri · 6:00 AM–4:30 PM</strong></div>
-          <div><span>Current availability</span><strong>{availability.short}</strong></div>
+          <div><span>Current availability</span><strong>{availability.short} · Reviewed {availability.reviewed}</strong></div>
           <div><span>Owner-reported support</span><strong>Military fee-assistance status: active</strong></div>
+        </section>
+
+        <section className="expansion-banner" id="expansion" aria-labelledby="expansion-title">
+          <div className="expansion-copy">
+            <span className="eyebrow">{expansion.status}</span>
+            <h2 id="expansion-title">{expansion.title}</h2>
+            <p>{expansion.detail}</p>
+          </div>
+          <div className="expansion-facts">
+            <div><span>Available now</span><strong>1 opening under the current Small Family Child Care Home license</strong></div>
+            <div><span>Future capacity</span><strong>Subject to project completion and CDSS licensing approval</strong></div>
+            <a className="button button-primary" href="#waitlist">Join the Expansion Interest List</a>
+          </div>
         </section>
 
         <section className="section proof-section" id="why" aria-labelledby="why-title">
@@ -503,8 +524,8 @@ export default function Home() {
             <article><span>03</span><h3>School transportation</h3><p>Pickup and drop-off may be negotiated for schools within a five-mile radius of Gifted Garden’s location. Service depends on the school, timing, and family agreement.</p></article>
           </div>
           <div className="decision-row">
-            <div><strong>Need care soon?</strong><span>Request a tour and availability conversation.</span><a href="#tour">Request a Tour</a></div>
-            <div><strong>Planning ahead?</strong><span>Share a future start date without sending sensitive records.</span><a href="#waitlist">Join the Waitlist</a></div>
+            <div><strong>Need care soon?</strong><span>Ask whether the one current opening fits your child and schedule.</span><a href="#tour">Request a Tour</a></div>
+            <div><strong>Planning ahead?</strong><span>Express interest in additional spots planned after expansion and CDSS approval.</span><a href="#waitlist">Join the Interest List</a></div>
             <div><strong>Still deciding?</strong><span>Ask a short, non-sensitive question first.</span><a href="#contact">Ask a Question</a></div>
           </div>
         </section>
@@ -552,7 +573,7 @@ export default function Home() {
           </div>
           <ol className="steps-list">
             <li><span>1</span><h3>Check the basics</h3><p>Review ages, hours, tuition, availability, and location.</p></li>
-            <li><span>2</span><h3>Share your timing</h3><p>Request a tour for near-term care or join the waitlist for a future start.</p></li>
+            <li><span>2</span><h3>Share your timing</h3><p>Request a tour for the current opening or join the expansion interest list for future capacity.</p></li>
             <li><span>3</span><h3>Visit and ask</h3><p>Meet the provider and review routines and policies.</p></li>
             <li><span>4</span><h3>Enroll securely</h3><p>Provide sensitive records later through an approved system.</p></li>
           </ol>
@@ -577,11 +598,14 @@ export default function Home() {
 
         <section className="form-section alternate" id="waitlist" aria-labelledby="waitlist-section-title">
           <div className="form-section-copy">
-            <span className="eyebrow">Planning for future care</span>
-            <h2 id="waitlist-section-title">Join the Gifted Garden waitlist.</h2>
-            <p>Share your preferred start month and care needs. Gifted Garden will review the request and follow up about availability and next steps.</p>
+            <span className="eyebrow">One current opening · expansion interest welcome</span>
+            <h2 id="waitlist-section-title">Join the current or expansion interest list.</h2>
+            <p>Share your preferred start month and care needs. Choose whether you are interested in the current opening, future spots planned after expansion and CDSS approval, or both.</p>
             <ul>
-              <li>A waitlist request does not reserve or guarantee a space.</li>
+              <li>The current Small Family Child Care Home license has one owner-reported opening as of {availability.reviewed}.</li>
+              <li>Additional capacity requires project completion and CDSS approval of a Large Family Child Care Home license.</li>
+              <li>An interest-list request does not reserve or guarantee a current or future space.</li>
+              <li>No expansion completion date or added capacity is promised.</li>
               <li>Placement depends on availability, age, schedule, and program fit.</li>
               <li>Do not send medical, custody, financial, or benefit records.</li>
             </ul>
@@ -609,7 +633,7 @@ export default function Home() {
           <div>
             <span className="eyebrow">Ready when your family is</span>
             <h2 id="closing-cta-title">Take the next step toward care that stays personal.</h2>
-            <p>Tour for near-term care, join the waitlist for a future start, or call with one quick question.</p>
+            <p>Tour for the current opening, join the expansion interest list for future capacity, or call with one quick question.</p>
           </div>
           <div className="closing-actions">
             <a className="button button-primary" href="#tour">Request a Tour</a>

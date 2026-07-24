@@ -16,9 +16,9 @@ const formCopy = {
     subject: "Gifted Garden Tour Request",
   },
   waitlist: {
-    eyebrow: "Planning ahead",
-    title: "Join the waitlist",
-    intro: "Share your preferred start timing and care needs. Gifted Garden will follow up about availability and next steps.",
+    eyebrow: "Current opening or future expansion",
+    title: "Join the interest list",
+    intro: "Tell us whether you are interested in the current opening, additional spots planned after expansion and CDSS approval, or both.",
     button: "Prepare Waitlist Request Email",
     subject: "Gifted Garden Waitlist Request",
   },
@@ -41,6 +41,7 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
   const [copyStatus, setCopyStatus] = useState("");
   const copy = formCopy[kind];
   const isTour = kind === "tour";
+  const isWaitlist = kind === "waitlist";
   const isQuestion = kind === "question";
 
   function prepareEmail(event: FormEvent<HTMLFormElement>) {
@@ -63,6 +64,7 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
       );
     }
 
+    if (isWaitlist) lines.push(`Interest: ${field(data, "waitlist-interest")}`);
     if (isTour) lines.push(`Preferred tour day/time: ${field(data, "tour-preference") || "No preference provided"}`);
     if (isQuestion) lines.push("", "Question:", field(data, "question"));
 
@@ -136,6 +138,18 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
                 <option>Not sure yet</option>
               </select>
             </label>
+            {isWaitlist && (
+              <label className="full-field">
+                Which opportunity interests you? <span aria-hidden="true">*</span>
+                <select name="waitlist-interest" defaultValue="" required>
+                  <option value="" disabled>Select an option</option>
+                  <option>Current opening under the existing license</option>
+                  <option>Future expansion spots, pending CDSS approval</option>
+                  <option>Either the current opening or future expansion</option>
+                  <option>Planning for a later date</option>
+                </select>
+              </label>
+            )}
           </>
         )}
 

@@ -32,8 +32,8 @@ test("renders the public Gifted Garden enrollment website", async () => {
   assert.doesNotMatch(html, /gifted-garden-seal/);
   assert.match(html, /https:\/\/giftedgarden\.github\.io\/og\.png/);
   assert.match(html, /rel="canonical" href="https:\/\/giftedgarden\.github\.io\/"/);
-  assert.match(html, /Contact for current availability/);
-  assert.doesNotMatch(html, /3 spaces/);
+  assert.match(html, /1 current opening/);
+  assert.doesNotMatch(html, /Contact for current availability|3 spaces/);
   assert.match(html, /6:00 AM/);
   assert.match(html, /Monday through Friday/);
   assert.match(html, /Dionne Panton Family Child Care/);
@@ -43,6 +43,10 @@ test("renders the public Gifted Garden enrollment website", async () => {
   assert.match(html, /no resident children currently count/i);
   assert.match(html, /full-time first shift/i);
   assert.match(html, /Twenty-four-hour and weekend care may be negotiated as needed/);
+  assert.match(html, /Large Family Child Care Home license/);
+  assert.match(html, /CDSS approval pending/);
+  assert.match(html, /Join the Expansion Interest List/);
+  assert.match(html, /No expansion completion date or added capacity is promised/);
   assert.match(html, /late pickup, late payment, and returned payments/);
   assert.match(html, /Pickup and drop-off transportation may be negotiated for schools within a five-mile radius/);
   assert.match(html, /December 24–January 1/);
@@ -111,6 +115,8 @@ test("prepares structured messages for the verified business email", async () =>
   assert.match(source, /giftedgarden1@gmail\.com/);
   assert.match(source, /Gifted Garden Tour Request/);
   assert.match(source, /Gifted Garden Waitlist Request/);
+  assert.match(source, /waitlist-interest/);
+  assert.match(source, /Future expansion spots, pending CDSS approval/);
   assert.match(source, /Operational contact consent: Yes/);
   assert.doesNotMatch(source, /How they heard about Gifted Garden/);
   assert.doesNotMatch(source, /marketing-consent/);
