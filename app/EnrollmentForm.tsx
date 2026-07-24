@@ -16,9 +16,9 @@ const formCopy = {
     subject: "Gifted Garden Tour Request",
   },
   waitlist: {
-    eyebrow: "Current opening or future expansion",
-    title: "Join the interest list",
-    intro: "Tell us whether you are interested in the current opening, additional spots planned after expansion and CDSS approval, or both.",
+    eyebrow: "Planning ahead",
+    title: "Join the waitlist",
+    intro: "Share your preferred start timing and care needs so Gifted Garden can follow up when an opening may fit your family.",
     button: "Prepare Waitlist Request Email",
     subject: "Gifted Garden Waitlist Request",
   },
@@ -64,7 +64,7 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
       );
     }
 
-    if (isWaitlist) lines.push(`Interest: ${field(data, "waitlist-interest")}`);
+    if (isWaitlist) lines.push(`Timing preference: ${field(data, "care-timing")}`);
     if (isTour) lines.push(`Preferred tour day/time: ${field(data, "tour-preference") || "No preference provided"}`);
     if (isQuestion) lines.push("", "Question:", field(data, "question"));
 
@@ -140,12 +140,12 @@ export function EnrollmentForm({ kind }: { kind: FormKind }) {
             </label>
             {isWaitlist && (
               <label className="full-field">
-                Which opportunity interests you? <span aria-hidden="true">*</span>
-                <select name="waitlist-interest" defaultValue="" required>
-                  <option value="" disabled>Select an option</option>
-                  <option>Current opening under the existing license</option>
-                  <option>Future expansion spots, pending CDSS approval</option>
-                  <option>Either the current opening or future expansion</option>
+                Care timing <span aria-hidden="true">*</span>
+                <select name="care-timing" defaultValue="" required>
+                  <option value="" disabled>Select one</option>
+                  <option>Interested in the current opening</option>
+                  <option>Interested in a future opening</option>
+                  <option>Either current or future</option>
                   <option>Planning for a later date</option>
                 </select>
               </label>

@@ -7,8 +7,9 @@ Updated July 23, 2026 after a cross-functional Sparkle Shield Bros review and ow
 Implemented without requiring new owner facts:
 
 - Published one owner-reported current opening under the existing Small Family Child Care Home license, with a visible July 23, 2026 review date.
-- Added a separate expansion interest path for families seeking future spots while clearly stating that project completion, CDSS approval, added capacity, timing, and placement are not guaranteed.
-- Updated the waitlist email template so parents can identify interest in the current opening, future expansion capacity, either option, or a later start.
+- Published one owner-reported current opening with an explicit review date and fit qualification.
+- Simplified the waitlist into clear care-stage statuses and a parent-friendly timing preference.
+- Moved future growth to a short FAQ and removed prominent speculative expansion language from the conversion path.
 - Applied the strongest conversion patterns from the competitor review: an authentic-photo hero, concise program fit, repeated tour and waitlist actions, a clear tour-expectations checklist, and a strong final call to action.
 - Added direct Google, Yelp, Instagram, and Facebook profile links without copying ratings, inventing testimonials, or making unsupported “top-rated” claims.
 - Added a canonical URL, public sitemap, robots rules, and privacy-preserving ChildCare structured data for local search discovery.
