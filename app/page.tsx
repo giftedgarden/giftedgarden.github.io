@@ -106,63 +106,63 @@ const profileLinks = {
 
 const galleryPhotos = [
   {
-    src: "/images/friendships.jpg",
+    src: "/images/friendships.webp",
     alt: "Three children smiling and sharing a group hug indoors",
     eyebrow: "Belonging",
     title: "Friendships grow here",
     className: "featured",
   },
   {
-    src: "/images/storytime.jpg",
+    src: "/images/storytime.webp",
     alt: "Two children sitting together and exploring picture books",
     eyebrow: "Early literacy",
     title: "Stories shared together",
     className: "wide",
   },
   {
-    src: "/images/early-learning.jpg",
+    src: "/images/early-learning.webp",
     alt: "A child concentrating while practicing letter formation",
     eyebrow: "Guided discovery",
     title: "Learning through practice",
     className: "",
   },
   {
-    src: "/images/creative-building.jpg",
+    src: "/images/creative-building.webp",
     alt: "A child building a large colorful structure with magnetic tiles",
     eyebrow: "Creative play",
     title: "Big ideas take shape",
     className: "",
   },
   {
-    src: "/images/life-skills.jpg",
+    src: "/images/life-skills.webp",
     alt: "A child practicing buttons, buckles, snaps, and a zipper",
     eyebrow: "Independence",
     title: "Everyday skills, patiently practiced",
     className: "",
   },
   {
-    src: "/images/outdoor-movement.jpg",
+    src: "/images/outdoor-movement.webp",
     alt: "A smiling child riding a red tricycle outdoors",
     eyebrow: "Active play",
     title: "Room to move",
     className: "",
   },
   {
-    src: "/images/nature-discovery.jpg",
+    src: "/images/nature-discovery.webp",
     alt: "A child holding two yellow flowers during outdoor exploration",
     eyebrow: "Nature",
     title: "Small wonders, closely noticed",
     className: "",
   },
   {
-    src: "/images/water-play.jpg",
+    src: "/images/water-play.webp",
     alt: "A smiling child enjoying supervised water play",
     eyebrow: "Sensory play",
     title: "Joyful ways to explore",
     className: "",
   },
   {
-    src: "/images/community-outing.jpg",
+    src: "/images/community-outing.webp",
     alt: "A group of children gathered together during a supervised community outing",
     eyebrow: "Community",
     title: "Adventures beyond the playroom",
@@ -208,8 +208,8 @@ export default function Home() {
     slogan: "Where every child blooms.",
     description: "Licensed Small Family Child Care Home serving children from birth through age 5 in Lomita Village, San Diego.",
     image: [
-      "https://giftedgarden.github.io/images/friendships.jpg",
-      "https://giftedgarden.github.io/images/dionne-panton.jpg",
+      "https://giftedgarden.github.io/images/friendships.webp",
+      "https://giftedgarden.github.io/images/dionne-panton.webp",
     ],
     address: {
       "@type": "PostalAddress",
@@ -309,7 +309,7 @@ export default function Home() {
           <aside className="hero-card" aria-label="Gifted Garden program highlights">
             <div className="hero-photo">
               <Image
-                src="/images/friendships.jpg"
+                src="/images/friendships.webp"
                 alt="Three children smiling and sharing a group hug at Gifted Garden"
                 fill
                 unoptimized
@@ -429,7 +429,7 @@ export default function Home() {
         <section className="provider-section" id="provider" aria-labelledby="provider-title">
           <div className="provider-portrait">
             <Image
-              src="/images/dionne-panton.jpg"
+              src="/images/dionne-panton.webp"
               alt="Dionne Panton, Gifted Garden child-care provider"
               fill
               unoptimized

@@ -57,10 +57,10 @@ test("renders the public Gifted Garden enrollment website", async () => {
   assert.match(html, /https:\/\/cdss\.ca\.gov\/inforesources\/community-care-licensing\/facility-search-welcome/);
   assert.match(html, /Dionne Panton/);
   assert.match(html, /Dionne Panton, Gifted Garden child-care provider/);
-  assert.match(html, /\/images\/dionne-panton.jpg/);
-  assert.match(html, /src="\/images\/friendships.jpg"/);
+  assert.match(html, /\/images\/dionne-panton.webp/);
+  assert.match(html, /src="\/images\/friendships.webp"/);
   assert.match(html, /Three children smiling and sharing a group hug at Gifted Garden/);
-  assert.match(html, /src="\/images\/community-outing.jpg"/);
+  assert.match(html, /src="\/images\/community-outing.webp"/);
   assert.doesNotMatch(html, /\/_vinext\/image\?/);
   assert.doesNotMatch(html, /Provider photograph placeholder/);
   assert.match(html, /Master of Science in Early Childhood Education/);
@@ -91,6 +91,15 @@ test("renders the public Gifted Garden enrollment website", async () => {
   assert.doesNotMatch(html, /Enrollment preview/);
   assert.doesNotMatch(html, /Private owner-review version/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/);
+
+  const staticImagePaths = [...new Set(
+    [...html.matchAll(/src="(\/(?:brand|images)\/[^"]+)"/g)].map((match) => match[1]),
+  )];
+  assert.ok(staticImagePaths.length >= 12, "expected all brand and gallery images in the rendered page");
+  await Promise.all(staticImagePaths.map(async (imagePath) => {
+    const bytes = await readFile(new URL(`../public${imagePath}`, import.meta.url));
+    assert.ok(bytes.length > 0, `${imagePath} must be included in the public site`);
+  }));
 });
 
 test("publishes local-search discovery files", async () => {
